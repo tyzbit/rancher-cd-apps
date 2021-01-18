@@ -42,8 +42,7 @@ spec:
           privileged: true
         resources:
           limits:
-            cpu: 1000m
-            memory: 1.5G
+            memory: 2G
       nodeSelector:
         kubernetes.io/hostname: trainman
       volumes:
