@@ -1,0 +1,50 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: plex
+  labels:
+    app: plex
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: plex
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: plex
+    spec:
+      hostNetwork: true
+      containers:
+      - name: plex
+        image: plexinc/pms-docker
+        imagePullPolicy: Always
+        ports:
+          - containerPort: 32400
+        volumeMounts:
+          - mountPath: "/braavos"
+            name: braavos
+          - mountPath: "/dev/dri"
+            name: dri
+          - mountPath: "/config"
+            name: config
+        securityContext:
+          privileged: true
+        resources:
+          limits:
+            cpu: 4000m
+            memory: 2G
+      nodeSelector:
+        kubernetes.io/hostname: trainman
+      volumes:
+        - name: braavos
+          persistentVolumeClaim:
+            claimName: braavos-media-pvc
+        - name: dri
+          persistentVolumeClaim:
+            claimName: dri-pvc
+        - name: config
+          persistentVolumeClaim:
+            claimName: plexmediaserver-pvc

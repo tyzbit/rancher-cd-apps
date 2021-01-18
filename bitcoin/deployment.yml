@@ -1,0 +1,52 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bitcoin
+  labels:
+    app: bitcoin
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: bitcoin
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: bitcoin
+    spec:
+      containers:
+      - name: bitcoin
+        image: kylemanna/bitcoind
+        command: ["btc_oneshot","-peerbloomfilters=1"]
+        #imagePullPolicy: Always
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 8333
+          name: bitcoin
+          protocol: TCP
+        - containerPort: 8332
+          name: bitcoin-rpc
+          protocol: TCP
+        - containerPort: 28332
+          name: bitcoin-mq
+          protocol: TCP
+        - containerPort: 28333
+          name: bitcoin-mq2
+          protocol: TCP
+        volumeMounts:
+          - mountPath: "/bitcoin"
+            name: blockchain
+        securityContext:
+          privileged: true
+        resources:
+          limits:
+            cpu: 2000m
+            memory: 1.5G
+      nodeSelector:
+        kubernetes.io/hostname: trainman
+      volumes:
+        - name: blockchain
+          persistentVolumeClaim:
+            claimName: bitcoinblockchain-pvc
