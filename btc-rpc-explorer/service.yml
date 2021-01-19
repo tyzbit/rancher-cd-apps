@@ -1,11 +1,11 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: bitcoin-rpc-explorer
+  name: btc-rpc-explorer
 spec:
   type: LoadBalancer
   selector:
-    app: bitcoin-rpc-explorer
+    app: btc-rpc-explorer
   ports:
     - name: http
       protocol: TCP

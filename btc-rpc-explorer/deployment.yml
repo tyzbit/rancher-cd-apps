@@ -1,23 +1,23 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: bitcoin-rpc-explorer
+  name: btc-rpc-explorer
   labels:
-    app: bitcoin-rpc-explorer
+    app: btc-rpc-explorer
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: bitcoin-rpc-explorer
+      app: btc-rpc-explorer
   strategy:
     type: RollingUpdate
   template:
     metadata:
       labels:
-        app: bitcoin-rpc-explorer
+        app: btc-rpc-explorer
     spec:
       containers:
-      - name: bitcoin-rpc-explorer
+      - name: btc-rpc-explorer
         image: tyzbit/btc-rpc-explorer
         imagePullPolicy: Always
         env:
@@ -26,7 +26,7 @@ spec:
           - name: BTCEXP_BITCOIN_URI
             valueFrom:
               secretKeyRef:
-                name: bitcoin-rpc-explorer
+                name: btc-rpc-explorer
                 key: BTCEXP_BITCOIN_URI
         ports:
         - containerPort: 3002
