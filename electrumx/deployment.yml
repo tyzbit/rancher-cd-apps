@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: electrumx
+  labels:
+    app: electrumx
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: electrumx
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: electrumx
+    spec:
+      containers:
+      - name: electrumx
+        image: lukechilds/electrumx
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 50002
+          name: electrumx
+          protocol: TCP
+        volumeMounts:
+          - mountPath: "/data"
+            name: electrumx-data
+        securityContext:
+          privileged: true
+        resources:
+          limits:
+            memory: 2G
+      nodeSelector:
+        kubernetes.io/hostname: trainman
+      volumes:
+        - name: electrumx-data
+          persistentVolumeClaim:
+            claimName: electrumx-data-pvc
