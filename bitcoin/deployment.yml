@@ -19,7 +19,7 @@ spec:
       containers:
       - name: bitcoin
         image: kylemanna/bitcoind
-        command: ["btc_oneshot","-peerbloomfilters=1"]
+        command: ["btc_oneshot","-peerbloomfilters=1","-txindex=1"]
         #imagePullPolicy: Always
         imagePullPolicy: IfNotPresent
         ports:
