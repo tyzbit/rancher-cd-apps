@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
       - name: bitcoin-rpc-explorer
-        image: tyzbit/bitcoin-rpc-explorer
+        image: tyzbit/btc-rpc-explorer
         imagePullPolicy: Always
         env:
           - name: BTCEXP_HOST
@@ -35,5 +35,3 @@ spec:
         resources:
           limits:
             memory: 2G
-      imagePullSecrets:
-        - name: docker-hub
