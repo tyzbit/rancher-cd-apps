@@ -23,11 +23,11 @@ spec:
         env:
           - name: BTCEXP_HOST
             value: "0.0.0.0"
-          - name: BTCEXP_BITCOIN_URI
+          - name: BTCEXP_BITCOIND_URI
             valueFrom:
               secretKeyRef:
                 name: btc-rpc-explorer
-                key: BTCEXP_BITCOIN_URI
+                key: BTCEXP_BITCOIND_URI
         ports:
         - containerPort: 3002
           name: http
