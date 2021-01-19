@@ -26,8 +26,8 @@ spec:
           - name: BTCEXP_BITCOIN_URI
             valueFrom:
               secretKeyRef:
-                - name: bitcoin-rpc-explorer
-                  key: BTCEXP_BITCOIN_URI
+                name: bitcoin-rpc-explorer
+                key: BTCEXP_BITCOIN_URI
         ports:
         - containerPort: 3002
           name: http
