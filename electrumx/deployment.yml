@@ -22,7 +22,7 @@ spec:
         imagePullPolicy: Always
         env: 
           - name: COIN
-            value: Bitcoin
+            value: BitcoinSegwit
           - name: DAEMON_URL
             valueFrom:
               secretKeyRef:
