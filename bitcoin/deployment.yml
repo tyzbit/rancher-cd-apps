@@ -41,8 +41,12 @@ spec:
         securityContext:
           privileged: true
         resources:
-          limits:
+          requests:
+            cpu: "1"
             memory: 1.5G
+          limits:
+           cpu: "1"
+           memory: 1.5G
       nodeSelector:
         kubernetes.io/hostname: trainman
       volumes:
