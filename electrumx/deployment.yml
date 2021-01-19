@@ -24,8 +24,8 @@ spec:
           - name: DAEMON_URL
             valueFrom:
               secretKeyRef:
-                name: DAEMON_URL
-                key: electrumx
+                name: electrumx
+                key: DAEMON_URL
         ports:
         - containerPort: 50002
           name: electrumx
