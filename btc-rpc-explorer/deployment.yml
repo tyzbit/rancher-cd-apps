@@ -23,6 +23,13 @@ spec:
         env:
           - name: BTCEXP_HOST
             value: "0.0.0.0"
+          - name: BTCEXP_ADDRESS_API
+            value: electrumx
+          - name: BTCEXP_ELECTRUMX_SERVERS
+            valueFrom:
+              secretKeyRef:
+                name: btc-rpc-explorer
+                key: BTCEXP_ELECTRUMX_SERVERS
           - name: BTCEXP_BITCOIND_URI
             valueFrom:
               secretKeyRef:

@@ -20,6 +20,12 @@ spec:
       - name: electrumx
         image: lukechilds/electrumx
         imagePullPolicy: Always
+        env: 
+          - name: DAEMON_URL
+            valueFrom:
+              secretKeyRef:
+                name: DAEMON_URL
+                key: electrumx
         ports:
         - containerPort: 50002
           name: electrumx
