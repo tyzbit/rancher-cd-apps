@@ -36,4 +36,4 @@ spec:
           limits:
             memory: 2G
       imagePullSecrets:
-        - docker-hub
+        - name: docker-hub
