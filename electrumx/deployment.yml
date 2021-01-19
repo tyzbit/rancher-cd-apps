@@ -21,6 +21,8 @@ spec:
         image: lukechilds/electrumx
         imagePullPolicy: Always
         env: 
+          - name: COIN
+            value: BTC
           - name: DAEMON_URL
             valueFrom:
               secretKeyRef:
