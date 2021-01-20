@@ -24,7 +24,7 @@ spec:
             - name: BTCEXP_ADDRESS_API
               value: electrumx
             - name: BTCEXP_REDIS_URL
-              value: 127.0.0.1:6379
+              value: redis://127.0.0.1:6379
             - name: BTCEXP_ELECTRUMX_SERVERS
               valueFrom:
                 secretKeyRef:
