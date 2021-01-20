@@ -3,7 +3,7 @@ kind: Service
 metadata:
   name: electrumx
 spec:
-  type: NodePort
+  type: LoadBalancer
   selector:
     app: electrumx
   ports:
