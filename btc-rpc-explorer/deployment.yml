@@ -25,6 +25,15 @@ spec:
               value: electrumx
             - name: BTCEXP_REDIS_URL
               value: redis://127.0.0.1:6379
+            - name: BTCEXP_NO_RATES
+              value: "false"
+            - name: BTCEXP_SLOW_DEVICE_MODE
+              value: "false"
+            - name: BTCEXP_IPSTACK_APIKEY
+              valueFrom:
+                secretKeyRef:
+                  name: btc-rpc-explorer
+                  key: BTCEXP_IPSTACK_APIKEY
             - name: BTCEXP_ELECTRUMX_SERVERS
               valueFrom:
                 secretKeyRef:
