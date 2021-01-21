@@ -38,7 +38,7 @@ spec:
           name: bitcoin-mq2
           protocol: TCP
         volumeMounts:
-          - mountPath: "/bitcoin"
+          - mountPath: "/blockchain"
             name: blockchain
         securityContext:
           privileged: true
