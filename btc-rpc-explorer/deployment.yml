@@ -50,10 +50,10 @@ spec:
               protocol: TCP
           resources:
             limits:
-              cpu: "1"
+              cpu: 500m
               memory: 512M
             requests:
-              cpu: "1"
+              cpu: 500m
               memory: 512M
         - name: redis
           image: redis
