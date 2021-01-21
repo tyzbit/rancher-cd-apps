@@ -19,7 +19,10 @@ spec:
       containers:
       - name: bitcoin
         image: kylemanna/bitcoind
-        command: ["btc_oneshot","-peerbloomfilters=1","-txindex=1"]
+        command: ["sh","-c","usermod -d /blockchain bitcoin && btc_oneshot'"]
+        env:
+        - name: HOME
+          value: "/blockchain"
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 8333
