@@ -41,10 +41,10 @@ spec:
           privileged: true
         resources:
           requests:
-            cpu: "1"
+            cpu: 750m
             memory: 1500M
           limits:
-           cpu: "1"
+           cpu: 750m
            memory: 1500M
       nodeSelector:
         kubernetes.io/hostname: trainman
