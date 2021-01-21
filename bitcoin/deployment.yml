@@ -19,7 +19,7 @@ spec:
       containers:
       - name: bitcoin
         image: kylemanna/bitcoind
-        command: ["sh","-c","usermod -d /blockchain bitcoin && btc_oneshot'"]
+        command: ["sh","-c","usermod -d /blockchain bitcoin && btc_oneshot"]
         env:
         - name: HOME
           value: "/blockchain"
