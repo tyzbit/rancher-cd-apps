@@ -29,21 +29,9 @@ spec:
               value: "false"
             - name: BTCEXP_SLOW_DEVICE_MODE
               value: "false"
-            - name: BTCEXP_IPSTACK_APIKEY
-              valueFrom:
-                secretKeyRef:
-                  name: btc-rpc-explorer
-                  key: BTCEXP_IPSTACK_APIKEY
-            - name: BTCEXP_ELECTRUMX_SERVERS
-              valueFrom:
-                secretKeyRef:
-                  name: btc-rpc-explorer
-                  key: BTCEXP_ELECTRUMX_SERVERS
-            - name: BTCEXP_BITCOIND_URI
-              valueFrom:
-                secretKeyRef:
-                  name: btc-rpc-explorer
-                  key: BTCEXP_BITCOIND_URI
+          envFrom:
+            - secretKeyRef:
+                name: btc-rpc-explorer
           ports:
             - containerPort: 3002
               name: http
