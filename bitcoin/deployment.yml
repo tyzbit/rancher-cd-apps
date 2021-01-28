@@ -47,7 +47,7 @@ spec:
             cpu: 1000m
             memory: 1792M
           limits:
-           cpu: 1000mm
+           cpu: 1000m
            memory: 1792M
       nodeSelector:
         kubernetes.io/hostname: trainman
