@@ -45,10 +45,10 @@ spec:
         resources:
           requests:
             cpu: 1000m
-            memory: 1792M
+            memory: 2048M
           limits:
            cpu: 1000m
-           memory: 1792M
+           memory: 2048M
       nodeSelector:
         kubernetes.io/hostname: trainman
       volumes:
