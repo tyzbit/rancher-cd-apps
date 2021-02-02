@@ -54,3 +54,34 @@ spec:
             requests:
               cpu: 100m
               memory: 128M
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: btc-rpc-explorer-cache
+  labels:
+    app: btc-rpc-explorer-cache
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: btc-rpc-explorer-cache
+  template:
+    metadata:
+      labels:
+        app: btc-rpc-explorer-cache
+    spec:
+      containers:
+        - name: redis
+          image: redis
+          ports:
+            - containerPort: 6379
+              name: redis
+              protocol: TCP
+          resources:
+            limits:
+              cpu: 100m
+              memory: 128M
+            requests:
+              cpu: 100m
+              memory: 128M
