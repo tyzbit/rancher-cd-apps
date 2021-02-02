@@ -11,3 +11,17 @@ spec:
       protocol: TCP
       port: 80
       targetPort: 3002
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: btc-rpc-explorer-cache
+spec:
+  type: LoadBalancer
+  selector:
+    app: btc-rpc-explorer-cache
+  ports:
+    - name: redis
+      protocol: TCP
+      port: 6379
+      targetPort: 6379
