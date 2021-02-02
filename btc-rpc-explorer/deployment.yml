@@ -23,8 +23,6 @@ spec:
               value: "0.0.0.0"
             - name: BTCEXP_ADDRESS_API
               value: electrumx
-            - name: BTCEXP_REDIS_URL
-              value: redis://127.0.0.1:6379
             - name: BTCEXP_NO_RATES
               value: "false"
             - name: BTCEXP_SLOW_DEVICE_MODE
