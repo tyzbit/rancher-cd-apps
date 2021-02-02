@@ -7,7 +7,7 @@ spec:
   selector:
     app: electrumx
   ports:
-    - name: rpc
+    - name: electrumx
       protocol: TCP
       port: 50002
       targetPort: 50002
