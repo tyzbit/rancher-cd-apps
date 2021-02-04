@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: btc-rpc-explorer
-          image: tyzbit/btc-rpc-explorer
+          image: tyzbit/btc-rpc-explorer:configurable-mapbox
           imagePullPolicy: Always
           env:
             - name: BTCEXP_HOST
