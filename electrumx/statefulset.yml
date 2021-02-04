@@ -42,7 +42,9 @@ spec:
           limits:
             memory: 3072M
   volumeClaimTemplates:
-  - metadata:
+  - apiVersion: v1
+    kind: PersistentVolume
+    metadata:
       name: electrumx-data
     spec:
       accessModes: 
