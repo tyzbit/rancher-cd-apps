@@ -45,7 +45,8 @@ spec:
   - metadata:
       name: electrumx-data
     spec:
-      accessModes: [ "ReadWriteOnce" ]
+      accessModes: 
+        - ReadWriteOnce
       storageClassName: "nfs-client"
       resources:
         requests:
