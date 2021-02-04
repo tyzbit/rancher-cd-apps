@@ -1,5 +1,5 @@
 apiVersion: apps/v1
-kind: Deployment
+kind: StatefulSet
 metadata:
   name: electrumx
   labels:
@@ -9,8 +9,7 @@ spec:
   selector:
     matchLabels:
       app: electrumx
-  strategy:
-    type: Recreate
+  serviceName: electrumx
   template:
     metadata:
       labels:
@@ -42,9 +41,12 @@ spec:
             memory: 3072M
           limits:
             memory: 3072M
-      nodeSelector:
-        kubernetes.io/hostname: trainman
-      volumes:
-        - name: electrumx-data
-          persistentVolumeClaim:
-            claimName: electrumx-data-pvc
+  volumeClaimTemplates:
+  - metadata:
+      name: electrumx-data
+    spec:
+      accessModes: [ "ReadWriteOnce" ]
+      storageClassName: "nfs-client"
+      resources:
+        requests:
+          storage: 50Gi
