@@ -49,6 +49,7 @@ spec:
     spec:
       accessModes: 
         - ReadWriteOnce
+      volumeMode: Filesystem
       storageClassName: "nfs-client"
       resources:
         requests:
