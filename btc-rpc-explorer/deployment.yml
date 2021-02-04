@@ -39,19 +39,6 @@ spec:
               memory: 256M
             requests:
               memory: 256M
-        - name: redis
-          image: redis
-          ports:
-            - containerPort: 6379
-              name: redis
-              protocol: TCP
-          resources:
-            limits:
-              cpu: 100m
-              memory: 128M
-            requests:
-              cpu: 100m
-              memory: 128M
 ---
 apiVersion: apps/v1
 kind: Deployment
