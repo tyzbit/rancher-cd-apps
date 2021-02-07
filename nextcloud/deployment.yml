@@ -33,16 +33,7 @@ spec:
             memory: 256M
           limits:
             memory: 256M
-  volumeClaimTemplates:
-  - apiVersion: v1
-    kind: PersistentVolume
-    metadata:
-      name: nextcloud-data
-    spec:
-      accessModes: 
-        - ReadWriteMany
-      volumeMode: Filesystem
-      storageClassName: longhorn
-      resources:
-        requests:
-          storage: 250Gi
+      volumes:
+        - name: nextcloud-data
+          persistentVolumeClaim:
+            claimName: nextcloud-data
