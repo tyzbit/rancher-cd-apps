@@ -39,8 +39,6 @@ spec:
         volumeMounts:
           - mountPath: "/blockchain"
             name: bitcoin-blockchain
-        securityContext:
-          privileged: true
         resources:
           requests:
             #cpu: 1000m

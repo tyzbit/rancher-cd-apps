@@ -1,0 +1,48 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nextcloud
+  labels:
+    app: nextcloud
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nextcloud
+  template:
+    metadata:
+      labels:
+        app: nextcloud
+    spec:
+      containers:
+      - name: nextcloud
+        image: nextcloud:20
+        imagePullPolicy: IfNotPresent
+        envFrom:
+          - secretRef:
+              name: nextcloud-config
+        ports:
+        - containerPort: 80
+          name: http
+          protocol: TCP
+        volumeMounts:
+          - mountPath: "/var/www/html"
+            name: nextcloud-data
+        resources:
+          requests:
+            memory: 256M
+          limits:
+            memory: 256M
+  volumeClaimTemplates:
+  - apiVersion: v1
+    kind: PersistentVolume
+    metadata:
+      name: nextcloud-data
+    spec:
+      accessModes: 
+        - ReadWriteMany
+      volumeMode: Filesystem
+      storageClassName: longhorn
+      resources:
+        requests:
+          storage: 250Gi
