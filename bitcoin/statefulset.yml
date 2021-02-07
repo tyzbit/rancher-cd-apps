@@ -18,8 +18,7 @@ spec:
       containers:
       - name: bitcoin
         image: kylemanna/bitcoind
-        #command: ["sh","-c","usermod -d /blockchain bitcoin && btc_oneshot"]
-        command: ["tail","-f","/dev/null"]
+        command: ["sh","-c","usermod -d /blockchain bitcoin && btc_oneshot"]
         env:
         - name: HOME
           value: "/blockchain"
@@ -40,8 +39,6 @@ spec:
         volumeMounts:
           - mountPath: "/blockchain"
             name: bitcoin-blockchain
-          - mountPath: "/old-blockchain"
-            name: blockchain
         securityContext:
           privileged: true
         resources:
@@ -51,12 +48,6 @@ spec:
           limits:
            #cpu: 1000m
            memory: 2048M
-      volumes:
-        - name: blockchain
-          persistentVolumeClaim:
-            claimName: bitcoinblockchain-pvc
-      nodeSelector:
-        kubernetes.io/hostname: trainman
   volumeClaimTemplates:
   - apiVersion: v1
     kind: PersistentVolume
