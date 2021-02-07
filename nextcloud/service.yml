@@ -17,7 +17,7 @@ kind: Service
 metadata:
   name: nextcloud-cache
 spec:
-  type: ClusterIP
+  type: NodePort
   selector:
     app: nextcloud-cache
   ports:

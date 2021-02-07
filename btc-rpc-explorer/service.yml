@@ -17,7 +17,7 @@ kind: Service
 metadata:
   name: btc-rpc-explorer-cache
 spec:
-  type: ClusterIP
+  type: NodePort
   selector:
     app: btc-rpc-explorer-cache
   ports:
