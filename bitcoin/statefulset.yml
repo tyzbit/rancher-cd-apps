@@ -1,16 +1,15 @@
 apiVersion: apps/v1
-kind: Deployment
+kind: StatefulSet
 metadata:
   name: bitcoin
   labels:
     app: bitcoin
 spec:
-  replicas: 0
+  replicas: 1
   selector:
     matchLabels:
       app: bitcoin
-  strategy:
-    type: Recreate
+  serviceName: bitcoin
   template:
     metadata:
       labels:
@@ -19,7 +18,8 @@ spec:
       containers:
       - name: bitcoin
         image: kylemanna/bitcoind
-        command: ["sh","-c","usermod -d /blockchain bitcoin && btc_oneshot"]
+        #command: ["sh","-c","usermod -d /blockchain bitcoin && btc_oneshot"]
+        command: ["tail","-f","/dev/null"]
         env:
         - name: HOME
           value: "/blockchain"
@@ -39,6 +39,8 @@ spec:
           protocol: TCP
         volumeMounts:
           - mountPath: "/blockchain"
+            name: bitcoin-blockchain
+          - mountPath: "/old-blockchain"
             name: blockchain
         securityContext:
           privileged: true
@@ -49,9 +51,22 @@ spec:
           limits:
            #cpu: 1000m
            memory: 2048M
-      nodeSelector:
-        kubernetes.io/hostname: trainman
       volumes:
         - name: blockchain
           persistentVolumeClaim:
             claimName: bitcoinblockchain-pvc
+      nodeSelector:
+        kubernetes.io/hostname: trainman
+  volumeClaimTemplates:
+  - apiVersion: v1
+    kind: PersistentVolume
+    metadata:
+      name: bitcoin-blockchain
+    spec:
+      accessModes: 
+        - ReadWriteOnce
+      volumeMode: Filesystem
+      storageClassName: longhorn
+      resources:
+        requests:
+          storage: 450Gi
