@@ -21,8 +21,8 @@ spec:
         image: plexinc/pms-docker
         command: ["tail","-f","/dev/null"]
         imagePullPolicy: Always
-        ports:
-          - containerPort: 32400
+        #ports:
+        #  - containerPort: 32400
         volumeMounts:
           - mountPath: "/braavos"
             name: braavos
