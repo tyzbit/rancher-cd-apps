@@ -37,8 +37,6 @@ spec:
         resources:
           limits:
             memory: 2G
-      nodeSelector:
-        kubernetes.io/hostname: trainman
       volumes:
         - name: braavos
           persistentVolumeClaim:
