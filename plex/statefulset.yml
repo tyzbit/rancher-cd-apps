@@ -19,17 +19,14 @@ spec:
       containers:
       - name: plex
         image: plexinc/pms-docker
-        command: ["tail","-f","/dev/null"]
         imagePullPolicy: Always
-        #ports:
-        #  - containerPort: 32400
+        ports:
+         - containerPort: 32400
         volumeMounts:
           - mountPath: "/braavos"
             name: braavos
           - mountPath: "/dev/dri"
             name: dri
-          - mountPath: "/old-config"
-            name: old-config
           - mountPath: "/config"
             name: plex-config
         securityContext:
@@ -44,9 +41,6 @@ spec:
         - name: dri
           persistentVolumeClaim:
             claimName: dri-pvc
-        - name: old-config
-          persistentVolumeClaim:
-            claimName: plexmediaserver-pvc
   volumeClaimTemplates:
   - apiVersion: v1
     kind: PersistentVolume
