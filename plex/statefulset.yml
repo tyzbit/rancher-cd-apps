@@ -19,7 +19,6 @@ spec:
       containers:
       - name: plex
         image: plexinc/pms-docker
-        command: ["tail","-f","/dev/null"]
         imagePullPolicy: Always
         command: ["tail","-f","/dev/null"]
         ports:
