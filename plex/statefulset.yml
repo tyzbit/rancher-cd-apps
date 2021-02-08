@@ -20,6 +20,7 @@ spec:
       - name: plex
         image: plexinc/pms-docker
         imagePullPolicy: Always
+        command: ["tail","-f","/dev/null"]
         ports:
          - containerPort: 32400
         volumeMounts:
@@ -29,6 +30,8 @@ spec:
             name: dri
           - mountPath: "/config"
             name: plex-config
+          - mountPath: "/external"
+            name: local
         securityContext:
           privileged: true
         resources:
@@ -41,6 +44,8 @@ spec:
         - name: dri
           persistentVolumeClaim:
             claimName: dri-pvc
+        - name: local
+          hostPath: /mnt/external/
       nodeSelector:
         kubernetes.io/hostname: trainman
   volumeClaimTemplates:
