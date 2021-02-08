@@ -45,7 +45,9 @@ spec:
           persistentVolumeClaim:
             claimName: dri-pvc
         - name: local
-          hostPath: /mnt/external/
+          hostPath:
+            path: /mnt/external/
+            type: DirectoryOrCreate
       nodeSelector:
         kubernetes.io/hostname: trainman
   volumeClaimTemplates:
