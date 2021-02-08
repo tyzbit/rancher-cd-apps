@@ -35,8 +35,6 @@ spec:
         volumeMounts:
           - mountPath: "/data"
             name: electrumx-data
-        #securityContext:
-        #  privileged: true
         resources:
           requests:
             memory: 3072M
