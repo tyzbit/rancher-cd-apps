@@ -19,6 +19,7 @@ spec:
       containers:
       - name: plex
         image: plexinc/pms-docker
+        command: ["tail","-f","/dev/null"]
         imagePullPolicy: Always
         ports:
          - containerPort: 32400
@@ -42,7 +43,7 @@ spec:
           persistentVolumeClaim:
             claimName: dri-pvc
       nodeSelector:
-        kubernetes.io/hostname: trainman
+        graphics: dri
   volumeClaimTemplates:
   - apiVersion: v1
     kind: PersistentVolume
