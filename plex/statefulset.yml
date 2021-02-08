@@ -41,6 +41,8 @@ spec:
         - name: dri
           persistentVolumeClaim:
             claimName: dri-pvc
+      nodeSelector:
+        kubernetes.io/hostname: trainman
   volumeClaimTemplates:
   - apiVersion: v1
     kind: PersistentVolume
