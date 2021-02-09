@@ -67,25 +67,6 @@ spec:
       labels:
         app: nextcloud-cache
     spec:
-      affinity:
-        podAffinity:
-          preferredDuringSchedulingIgnoredDuringExecution:
-          - labelSelector:
-              matchExpressions:
-              - key: app
-                operator: In
-                values:
-                - nextcloud
-            topologyKey: kubernetes.io/hostname
-        podAntiAffinity:
-          preferredDuringSchedulingIgnoredDuringExecution:
-          - labelSelector:
-              matchExpressions:
-              - key: app
-                operator: In
-                values:
-                - nextcloud-cache
-            topologyKey: kubernetes.io/hostname
       containers:
         - name: redis
           image: redis
