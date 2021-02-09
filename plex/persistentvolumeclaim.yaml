@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: braavos-media-pvc
+spec:
+  volumeName: braavos-media-pvc
+  accessModes: 
+    - ReadWriteMany
+  volumeMode: Filesystem
+  resources:
+    requests:
+      storage: 1024Gi
