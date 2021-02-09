@@ -29,8 +29,8 @@ spec:
             name: dri
           - mountPath: "/config"
             name: plex-config
-          # - mountPath: "/external"
-          #   name: local
+          - mountPath: "/external"
+            name: local
         securityContext:
           privileged: true
         resources:
@@ -43,10 +43,10 @@ spec:
         - name: dri
           persistentVolumeClaim:
             claimName: dri-pvc
-        # - name: local
-        #   hostPath:
-        #     path: /mnt/external/
-        #     type: DirectoryOrCreate
+        - name: local
+          hostPath:
+            path: /mnt/external/
+            type: DirectoryOrCreate
       nodeSelector:
         graphics: dri
   volumeClaimTemplates:
