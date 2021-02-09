@@ -61,7 +61,6 @@ spec:
     matchLabels:
       app: nextcloud-cache
   serviceName: nextcloud-cache
-
   template:
     metadata:
       labels:
