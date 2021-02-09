@@ -79,6 +79,7 @@ spec:
             operator: In
             values:
             - nextcloud-cache
+        topologyKey: kubernetes.io/hostname
   template:
     metadata:
       labels:
