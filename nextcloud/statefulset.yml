@@ -19,7 +19,8 @@ spec:
         - name: mariadb
           image: mariadb:10.5
           envFrom:
-            - name: nextcloud-db
+          - secretRef:
+              name: nextcloud-db
           ports:
             - containerPort: 3306
               name: sql
