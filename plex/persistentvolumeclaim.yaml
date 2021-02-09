@@ -4,7 +4,7 @@ metadata:
   name: braavos-media-pvc
   namespace: default
 spec:
-  volumeName: braavos-media-pvc
+  volumeName: braavos-media-pv
   accessModes: 
     - ReadWriteMany
   volumeMode: Filesystem
