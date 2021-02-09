@@ -3,6 +3,16 @@ entries:
   inspector:
   - apiVersion: v2
     appVersion: latest
+    created: "2021-02-09T23:33:50.120534406Z"
+    description: A Helm chart for Kubernetes
+    digest: d6d7254a2edf99b3dae251efd02ca0a491166ebda89f05215e7bc5460f481efd
+    name: inspector
+    type: application
+    urls:
+    - https://github.com/tyzbit/rancher-cd-apps/releases/download/inspector-0.1.5/inspector-0.1.5.tgz
+    version: 0.1.5
+  - apiVersion: v2
+    appVersion: latest
     created: "2021-02-09T23:26:24.125468023Z"
     description: A Helm chart for Kubernetes
     digest: a1ae1853e27ede1a11413c1f2dc305cc538bf159e60cf0c2268db8173c38c4e3
