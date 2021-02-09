@@ -15,6 +15,20 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
+  name: nextcloud-db
+spec:
+  type: ClusterIP
+  selector:
+    app: nextcloud-db
+  ports:
+    - name: mariadb
+      protocol: TCP
+      port: 3306
+      targetPort: 3306
+---
+apiVersion: v1
+kind: Service
+metadata:
   name: nextcloud-cache
 spec:
   type: ClusterIP

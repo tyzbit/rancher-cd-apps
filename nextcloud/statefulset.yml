@@ -1,6 +1,56 @@
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
+  name: nextcloud-db
+  labels:
+    app: nextcloud-db
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nextcloud-db
+  serviceName: nextcloud-db
+  template:
+    metadata:
+      labels:
+        app: nextcloud-db
+    spec:
+      containers:
+        - name: mariadb
+          image: mariadb:10.5
+          envFrom:
+            - name: nextcloud-db
+          ports:
+            - containerPort: 3306
+              name: sql
+              protocol: TCP
+          volumeMounts:
+            - name: nextcloud-db
+              mountPath: /var/lib/mysql
+          resources:
+            limits:
+              cpu: 100m
+              memory: 128M
+            requests:
+              cpu: 100m
+              memory: 128M
+  volumeClaimTemplates:
+  - apiVersion: v1
+    kind: PersistentVolume
+    metadata:
+      name: nextcloud-db
+    spec:
+      accessModes: 
+        - ReadWriteOnce
+      volumeMode: Filesystem
+      storageClassName: longhorn
+      resources:
+        requests:
+          storage: 20Gi
+---
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
   name: nextcloud-cache
   labels:
     app: nextcloud-cache
