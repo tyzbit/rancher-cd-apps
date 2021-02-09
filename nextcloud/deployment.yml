@@ -15,24 +15,24 @@ spec:
         app: nextcloud
     spec:
       affinity:
-      podAffinity:
-        preferredDuringSchedulingIgnoredDuringExecution:
-        - labelSelector:
-            matchExpressions:
-            - key: app
-              operator: In
-              values:
-              - nextcloud-cache
-          topologyKey: kubernetes.io/hostname
-      podAntiAffinity:
-        preferredDuringSchedulingIgnoredDuringExecution:
-        - labelSelector:
-            matchExpressions:
-            - key: app
-              operator: In
-              values:
-              - nextcloud
-          topologyKey: kubernetes.io/hostname
+        podAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+          - labelSelector:
+              matchExpressions:
+              - key: app
+                operator: In
+                values:
+                - nextcloud-cache
+            topologyKey: kubernetes.io/hostname
+        podAntiAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+          - labelSelector:
+              matchExpressions:
+              - key: app
+                operator: In
+                values:
+                - nextcloud
+            topologyKey: kubernetes.io/hostname
       containers:
       - name: nextcloud
         image: nextcloud:20
