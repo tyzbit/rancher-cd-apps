@@ -19,6 +19,15 @@ spec:
             values:
             - nextcloud-cache
         topologyKey: kubernetes.io/hostname
+    podAntiAffinity:
+      preferredDuringSchedulingIgnoredDuringExecution:
+      - labelSelector:
+          matchExpressions:
+          - key: app
+            operator: In
+            values:
+            - nextcloud
+        topologyKey: kubernetes.io/hostname
   template:
     metadata:
       labels:
