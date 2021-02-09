@@ -7,7 +7,7 @@ spec:
   accessModes: 
     - ReadWriteOnce
   volumeMode: Filesystem
-  storageClassName: nfs-client
+  storageClassName: {{ .Values.storageClassName | default "nfs-client" }}
   resources:
     requests:
       storage: 1Gi
