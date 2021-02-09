@@ -1,7 +1,7 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
-  - deployment.yml
-  - persistentvolumeclaim.yml
-  - service.yml
-  - statefulset.yml
+  - deployment.yaml
+  - persistentvolumeclaim.yaml
+  - service.yaml
+  - statefulset.yaml
