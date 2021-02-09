@@ -40,16 +40,3 @@ spec:
         - name: inspector-configs
           persistentVolumeClaim:
             claimName: inspector-configs
-  volumeClaimTemplates:
-  - apiVersion: v1
-    kind: PersistentVolume
-    metadata:
-      name: inspector-configs
-    spec:
-      accessModes: 
-        - ReadWriteOnce
-      volumeMode: Filesystem
-      storageClassName: nfs-client
-      resources:
-        requests:
-          storage: 1Gi
