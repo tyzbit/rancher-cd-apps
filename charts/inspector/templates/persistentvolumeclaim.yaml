@@ -4,9 +4,10 @@ metadata:
   name: inspector-configs
   namespace: {{ .Values.namespace }}
 spec:
+  accessModes: 
+    - ReadWriteOnce
+  volumeMode: Filesystem
+  storageClassName: {{ .Values.storageClassName | default "nfs-client" }}
   resources:
     requests:
       storage: 1Gi
-  storageClassName: nfs-client
-  accessModes: 
-    - ReadWriteMany

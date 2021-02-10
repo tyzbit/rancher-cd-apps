@@ -14,10 +14,22 @@ spec:
       labels:
         app: nextcloud
     spec:
+      affinity:
+        podAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+          - labelSelector:
+              matchExpressions:
+              - key: app
+                operator: In
+                values:
+                - nextcloud-cache
+                - nextcloud-db
+            topologyKey: kubernetes.io/hostname
       containers:
       - name: nextcloud
         image: nextcloud:20
         imagePullPolicy: IfNotPresent
+        # command: ["tail","-f","/dev/null"]
         envFrom:
           - secretRef:
               name: nextcloud-config
