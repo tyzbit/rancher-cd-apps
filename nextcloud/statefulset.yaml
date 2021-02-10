@@ -30,11 +30,11 @@ spec:
               mountPath: /var/lib/mysql
           resources:
             limits:
-              cpu: 100m
-              memory: 128M
+              # cpu: 100m
+              memory: 512M
             requests:
-              cpu: 100m
-              memory: 128M
+              # cpu: 100m
+              memory: 512M
   volumeClaimTemplates:
   - apiVersion: v1
     kind: PersistentVolume
