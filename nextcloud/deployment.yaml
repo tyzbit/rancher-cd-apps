@@ -18,7 +18,7 @@ spec:
       - name: nextcloud
         image: nextcloud:20
         imagePullPolicy: IfNotPresent
-        command: ["tail","-f","/dev/null"]
+        # command: ["tail","-f","/dev/null"]
         envFrom:
           - secretRef:
               name: nextcloud-config
