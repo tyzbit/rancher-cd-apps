@@ -54,7 +54,7 @@ kind: StatefulSet
 metadata:
   name: nextcloud-cache
   annotations:
-    fluxcd.io/ignore: "true"
+    # fluxcd.io/ignore: "true"
   labels:
     app: nextcloud-cache
 spec:
@@ -107,4 +107,4 @@ spec:
       storageClassName: longhorn
       resources:
         requests:
-          storage: 1Gi
+          storage: 2Gi
