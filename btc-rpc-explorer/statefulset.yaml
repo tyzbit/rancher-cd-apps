@@ -15,6 +15,18 @@ spec:
       labels:
         app: btc-rpc-explorer-cache
     spec:
+      affinity:
+        podAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+          - labelSelector:
+              matchExpressions:
+              - key: app
+                operator: In
+                values:
+                - bitcoin
+                - btc-rpc-explorer
+                - electrumx
+            topologyKey: kubernetes.io/hostname
       containers:
         - name: redis
           image: redis

@@ -15,6 +15,16 @@ spec:
       labels:
         app: electrumx
     spec:
+      affinity:
+        podAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+          - labelSelector:
+              matchExpressions:
+              - key: app
+                operator: In
+                values:
+                - bitcoin
+            topologyKey: kubernetes.io/hostname
       containers:
       - name: electrumx
         image: lukechilds/electrumx
