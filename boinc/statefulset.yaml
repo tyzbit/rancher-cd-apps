@@ -24,8 +24,8 @@ spec:
         ports:
          - containerPort: 80
         volumeMounts:
-          - mountPath: /app/BoincManager
-            name: boinc-manager-web-data
+          # - mountPath: /app/BoincManager
+          #   name: boinc-manager-web-data
         resources:
           limits:
             memory: 512Mi
