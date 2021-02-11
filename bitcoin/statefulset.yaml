@@ -54,7 +54,8 @@ spec:
       volumes:
         - name: simulacrum-blockchain
           nfs: 
-            path: "simulacrum:/mnt/user/Blockchain"
+            server: simulacrum
+            path: /mnt/user/Blockchain
   volumeClaimTemplates:
   - apiVersion: v1
     kind: PersistentVolume
