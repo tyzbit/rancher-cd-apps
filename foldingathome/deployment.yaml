@@ -48,6 +48,8 @@ spec:
           volumeMounts:
             - name: foldingathome-config
               mountPath: /etc/fahclient-config
+            - name: fahclient
+              mountPath: /var/lib/fahclient/
 
       containers:
         - name: foldingathome
@@ -77,13 +79,12 @@ spec:
             - mountPath: "/dev/dri"
               name: dri
             - mountPath: /var/lib/fahclient
-              name: foldingathome-config
+              name: fahclient
       # We make an emptyDir to mount on the work directory /var/lib/fahclient
       # so we can make the rest of the container's root filesystem read-only
       volumes:
         - name: dri
           persistentVolumeClaim:
             claimName: dri-pvc
-        - name: foldingathome-config
-          configMap:
-            name: foldingathome-config
+        - name: fahclient
+          emptyDir: {}
