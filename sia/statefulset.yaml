@@ -21,6 +21,9 @@ spec:
         image: nebulouslabs/sia
         imagePullPolicy: Always
         # command: ["tail","-f","/dev/null"]
+        env:
+        - name: SIA_MODULES
+          value: gctw
         ports:
          - containerPort: 9980
            name: api
