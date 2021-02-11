@@ -21,6 +21,9 @@ spec:
         image: tzahi12345/youtubedl-material:latest
         # command: ["tail","-f","/dev/null"]
         imagePullPolicy: Always
+        env: 
+        - name: ALLOW_CONFIG_MUTATIONS
+          value: "true"
         ports:
         - containerPort: 8998
           name: youtube-dl
