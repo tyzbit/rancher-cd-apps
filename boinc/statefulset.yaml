@@ -20,7 +20,7 @@ spec:
       - name: boinc-manager-web
         image: adamradocz/boinc-manager-web
         imagePullPolicy: Always
-        # command: ["tail","-f","/dev/null"]
+        command: ["tail","-f","/dev/null"]
         ports:
          - containerPort: 80
         volumeMounts:
