@@ -64,9 +64,9 @@ spec:
             - "--gpu=true"
           resources:
             limits:
-              nvidia.com/gpu: "1" # How many gpu's you want to donate per ndoe
+              # nvidia.com/gpu: "1" # How many gpu's you want to donate per ndoe
             requests:
-              nvidia.com/gpu: "1"
+              # nvidia.com/gpu: "1"
           # Make the container harder to break out of or exploit
           securityContext:
             runAsNonRoot: true
@@ -74,11 +74,16 @@ spec:
             readOnlyRootFilesystem: true
             allowPrivilegeEscalation: false
           volumeMounts:
+            - mountPath: "/dev/dri"
+              name: dri
             - mountPath: /var/lib/fahclient
               name: foldingathome-config
       # We make an emptyDir to mount on the work directory /var/lib/fahclient
       # so we can make the rest of the container's root filesystem read-only
       volumes:
+        - name: dri
+          persistentVolumeClaim:
+            claimName: dri-pvc
         - name: foldingathome-config
           configMap:
             name: foldingathome-config
