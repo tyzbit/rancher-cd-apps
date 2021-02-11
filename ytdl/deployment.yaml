@@ -1,0 +1,79 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: youtube-dl
+  annotations:
+    # fluxcd.io/ignore: "true"
+  labels:
+    app: youtube-dl
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: youtube-dl
+  template:
+    metadata:
+      labels:
+        app: youtube-dl
+    spec:
+      containers:
+      - name: youtube-dl
+        image: tzahi12345/youtubedl-material:latest
+        # command: ["tail","-f","/dev/null"]
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8998
+          name: youtube-dl
+          protocol: TCP
+        volumeMounts:
+          - mountPath: /app/audio
+            name: youtube-dl-audio
+          - mountPath: /app/video
+            name: youtube-dl-video
+          - mountPath: /app/appdata
+            name: youtube-dl-appdata
+          - mountPath: /app/subscriptions
+            name: youtube-dl-subscriptions
+          - mountPath: /app/users
+            name: youtube-dl-users
+        resources:
+          requests:
+            memory: 512M
+          limits:
+            memory: 512M
+      volumes:
+        - name: youtube-dl-audio
+          accessModes: readWriteMany
+          volumeMode: Filesystem
+          storageClassName: longhorn
+          resources:
+            requests:
+              storage: 40Gi
+        - name: youtube-dl-video
+          accessModes: readWriteMany
+          volumeMode: Filesystem
+          storageClassName: longhorn
+          resources:
+            requests:
+              storage: 100Gi
+        - name: youtube-dl-appdata
+          accessModes: readWriteMany
+          volumeMode: Filesystem
+          storageClassName: longhorn
+          resources:
+            requests:
+              storage: 1Gi
+        - name: youtube-dl-subscriptions
+          accessModes: readWriteMany
+          volumeMode: Filesystem
+          storageClassName: longhorn
+          resources:
+            requests:
+              storage: 1Gi
+        - name: youtube-dl-users
+          accessModes: readWriteMany
+          volumeMode: Filesystem
+          storageClassName: longhorn
+          resources:
+            requests:
+              storage: 1Gi
