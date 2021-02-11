@@ -22,7 +22,7 @@ spec:
         # command: ["tail","-f","/dev/null"]
         imagePullPolicy: Always
         ports:
-        - containerPort: 80
+        - containerPort: 8998
           name: youtube-dl
           protocol: TCP
         volumeMounts:
