@@ -2,10 +2,12 @@ apiVersion: apps/v1
 kind: StatefulSet
 metadata:
   name: bitcoin
+  annotations:
+    fluxcd.io/ignore: "true"
   labels:
     app: bitcoin
 spec:
-  replicas: 1
+  replicas: 0
   selector:
     matchLabels:
       app: bitcoin
@@ -18,8 +20,8 @@ spec:
       containers:
       - name: bitcoin
         image: kylemanna/bitcoind
-        command: ["sh","-c","usermod -d /blockchain bitcoin && btc_oneshot"]
-        # command: ["tail","-f","/dev/null"]
+        # command: ["sh","-c","usermod -d /blockchain bitcoin && btc_oneshot"]
+        command: ["tail","-f","/dev/null"]
         env:
         - name: HOME
           value: "/blockchain"
