@@ -3,7 +3,7 @@ kind: StatefulSet
 metadata:
   name: bitcoin
   annotations:
-    fluxcd.io/ignore: "true"
+    # fluxcd.io/ignore: "true"
   labels:
     app: bitcoin
 spec:
@@ -61,4 +61,4 @@ spec:
       storageClassName: longhorn
       resources:
         requests:
-          storage: 450Gi
+          storage: 550Gi
