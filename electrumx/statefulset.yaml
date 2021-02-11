@@ -47,11 +47,18 @@ spec:
         volumeMounts:
           - mountPath: "/data"
             name: electrumx-data
+          # - mountPath: "/simulacrum"
+          #   name: simulacrum-electrumx
         resources:
           requests:
             memory: 3072M
           limits:
             memory: 3072M
+      # volumes:
+      #   - name: simulacrum-electrumx
+      #     nfs: 
+      #       server: simulacrum
+      #       path: /mnt/user/ElectrumXData
   volumeClaimTemplates:
   - apiVersion: v1
     kind: PersistentVolume
