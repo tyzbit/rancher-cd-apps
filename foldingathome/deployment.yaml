@@ -1,0 +1,84 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: foldingathome
+  labels:
+    app: foldingathome  
+spec:
+  selector:
+    matchLabels:
+      app: foldingathome
+  replicas: 3 # Set number of replicas to run - one replica per node
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 100%
+      maxSurge: 100%
+  template:
+    metadata:
+      labels:
+        app: foldingathome
+    spec:
+      affinity:
+        podAntiAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+          - labelSelector:
+              matchExpressions:
+              - key: app
+                operator: In
+                values:
+                - foldingathome
+            topologyKey: "kubernetes.io/hostname"
+
+      initContainers:
+        - name: copy-config
+          imagePullPolicy: Always
+          image: "richstokes20/fah-covid:latest"
+          command:
+            - "sh"
+            - "-c"
+            - "cp"
+            - "/etc/fahclient-config/config.xml"
+            - "/var/lib/fahclient/config.xml"
+          securityContext:
+            runAsNonRoot: true
+            runAsUser: 1234
+            readOnlyRootFilesystem: true
+            allowPrivilegeEscalation: false
+          volumeMounts:
+            - name: foldingathome-config
+              mountPath: /etc/fahclient-config
+
+      containers:
+        - name: foldingathome
+          image: "richstokes20/fah-covid:latest"
+          # --run-as UID should match runAsUser value in containers securityContext
+          command:
+            - "/usr/bin/FAHClient"
+            - "--config"
+            - "/var/lib/fahclient/config.xml"
+            - "--config-rotate=false"
+            - "--run-as"
+            - "1234"
+            - "--pid-file=/var/lib/fahclient/fahclient.pid"
+            - "--gpu=true"
+          resources:
+            limits:
+              nvidia.com/gpu: "1" # How many gpu's you want to donate per ndoe
+            requests:
+              nvidia.com/gpu: "1"
+          # Make the container harder to break out of or exploit
+          securityContext:
+            runAsNonRoot: true
+            runAsUser: 1234
+            readOnlyRootFilesystem: true
+            allowPrivilegeEscalation: false
+          volumeMounts:
+            - mountPath: /var/lib/fahclient
+              name: fahclient
+      # We make an emptyDir to mount on the work directory /var/lib/fahclient
+      # so we can make the rest of the container's root filesystem read-only
+      volumes:
+        - name: foldingathome-config
+          configMap:
+            name: foldingathome-config
