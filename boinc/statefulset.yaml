@@ -56,22 +56,22 @@ spec:
       app: boinc-client
   serviceName: boinc-client
   template:
-    affinity:
-      podAntiAffinity:
-        preferredDuringSchedulingIgnoredDuringExecution:
-        - weight: 100
-          podAffinityTerm:
-            labelSelector:
-              matchExpressions:
-              - key: app
-                operator: In
-                values:
-                - boinc-client
-            topologyKey: kubernetes.io/hostname
     metadata:
       labels:
         app: boinc-client
     spec:
+      affinity:
+        podAntiAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+          - weight: 100
+            podAffinityTerm:
+              labelSelector:
+                matchExpressions:
+                - key: app
+                  operator: In
+                  values:
+                  - boinc-client
+              topologyKey: kubernetes.io/hostname
       hostNetwork: true
       containers:
       - name: boinc-client
