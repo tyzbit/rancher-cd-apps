@@ -46,8 +46,7 @@ spec:
             readOnlyRootFilesystem: true
             allowPrivilegeEscalation: false
           volumeMounts:
-            - name: foldingathome-config
-              mountPath: /etc/fahclient-config
+
             - name: fahclient
               mountPath: /var/lib/fahclient/
 
@@ -86,5 +85,8 @@ spec:
         - name: dri
           persistentVolumeClaim:
             claimName: dri-pvc
+        - name: foldingathome-config
+          configMap:
+            name: foldingathome-config
         - name: fahclient
           emptyDir: {}
