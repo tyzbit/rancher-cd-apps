@@ -25,7 +25,7 @@ spec:
         - name: ALLOW_CONFIG_MUTATIONS
           value: "true"
         ports:
-        - containerPort: 8998
+        - containerPort: 17442
           name: youtube-dl
           protocol: TCP
         volumeMounts:

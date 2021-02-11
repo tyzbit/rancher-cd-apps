@@ -10,4 +10,4 @@ spec:
     - name: youtube-dl
       protocol: TCP
       port: 80
-      targetPort: 8998
+      targetPort: 17442
