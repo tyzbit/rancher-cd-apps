@@ -32,10 +32,10 @@ spec:
             name: youtube-dl-video
           - mountPath: /app/appdata
             name: youtube-dl-appdata
-          - mountPath: /app/subscriptions
-            name: youtube-dl-subscriptions
           - mountPath: /app/users
             name: youtube-dl-users
+          - mountPath: /app/subscriptions
+            name: youtube-dl-subscriptions
         resources:
           requests:
             memory: 512M
@@ -43,37 +43,17 @@ spec:
             memory: 512M
       volumes:
         - name: youtube-dl-audio
-          accessModes: readWriteMany
-          volumeMode: Filesystem
-          storageClassName: longhorn
-          resources:
-            requests:
-              storage: 40Gi
+          persistentVolumeClaim:
+            claimName: youtube-dl-audio
         - name: youtube-dl-video
-          accessModes: readWriteMany
-          volumeMode: Filesystem
-          storageClassName: longhorn
-          resources:
-            requests:
-              storage: 100Gi
+          persistentVolumeClaim:
+            claimName: youtube-dl-video
         - name: youtube-dl-appdata
-          accessModes: readWriteMany
-          volumeMode: Filesystem
-          storageClassName: longhorn
-          resources:
-            requests:
-              storage: 1Gi
-        - name: youtube-dl-subscriptions
-          accessModes: readWriteMany
-          volumeMode: Filesystem
-          storageClassName: longhorn
-          resources:
-            requests:
-              storage: 1Gi
+          persistentVolumeClaim:
+            claimName: youtube-dl-appdata
         - name: youtube-dl-users
-          accessModes: readWriteMany
-          volumeMode: Filesystem
-          storageClassName: longhorn
-          resources:
-            requests:
-              storage: 1Gi
+          persistentVolumeClaim:
+            claimName: youtube-dl-users
+        - name: youtube-dl-subscriptions
+          persistentVolumeClaim:
+            claimName: youtube-dl-subscriptions
