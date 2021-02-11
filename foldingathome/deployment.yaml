@@ -1,3 +1,4 @@
+# pulled from https://github.com/richstokes/k8s-fah
 apiVersion: apps/v1
 kind: Deployment
 metadata:
