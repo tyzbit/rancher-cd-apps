@@ -24,6 +24,9 @@ spec:
         env:
         - name: SIA_MODULES
           value: gctw
+        envFrom:
+          - secretRef:
+              name: sia
         ports:
          - containerPort: 9980
            name: api
