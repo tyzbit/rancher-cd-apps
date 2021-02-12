@@ -4,7 +4,7 @@ kind: Deployment
 metadata:
   name: foldingathome
   labels:
-    app: foldingathome  
+    app: foldingathome
 spec:
   selector:
     matchLabels:
