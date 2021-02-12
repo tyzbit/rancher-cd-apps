@@ -9,7 +9,7 @@ spec:
   selector:
     matchLabels:
       app: iperf3-server
-  replicas: 3 # Set number of replicas to run - one replica per node
+  replicas: 1 # Set number of replicas to run - one replica per node
   strategy:
     type: RollingUpdate
     rollingUpdate:
