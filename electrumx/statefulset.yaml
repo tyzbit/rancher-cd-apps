@@ -3,7 +3,7 @@ kind: StatefulSet
 metadata:
   name: electrumx
   annotations:
-    # fluxcd.io/ignore: "true"
+    fluxcd.io/ignore: "true"
   labels:
     app: electrumx
 spec:
