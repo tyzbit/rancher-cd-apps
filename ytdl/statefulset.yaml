@@ -3,11 +3,11 @@ kind: StatefulSet
 metadata:
   name: youtube-dl
   annotations:
-    fluxcd.io/ignore: "true"
+    # fluxcd.io/ignore: "true"
   labels:
     app: youtube-dl
 spec:
-  replicas: 0
+  replicas: 1
   selector:
     matchLabels:
       app: youtube-dl
@@ -57,7 +57,7 @@ spec:
       storageClassName: longhorn
       resources:
         requests:
-          storage: 40Gi
+          storage: 1Gi
   - apiVersion: v1
     kind: PersistentVolume
     metadata:
@@ -69,7 +69,7 @@ spec:
       storageClassName: longhorn
       resources:
         requests:
-          storage: 100Gi
+          storage: 1Gi
   - apiVersion: v1
     kind: PersistentVolume
     metadata:
@@ -93,7 +93,7 @@ spec:
       storageClassName: longhorn
       resources:
         requests:
-          storage: 100Gi
+          storage: 1Gi
   - apiVersion: v1
     kind: PersistentVolume
     metadata:
@@ -105,4 +105,4 @@ spec:
       storageClassName: longhorn
       resources:
         requests:
-          storage: 100Gi
+          storage: 200Gi
