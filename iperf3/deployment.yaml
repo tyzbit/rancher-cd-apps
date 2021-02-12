@@ -45,7 +45,7 @@ spec:
   template:
     metadata:
       labels:
-        app: iperf3-server
+        app: iperf3-client
     spec:
       affinity:
         podAntiAffinity:
