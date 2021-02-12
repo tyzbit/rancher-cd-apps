@@ -7,7 +7,7 @@ metadata:
   labels:
     app: youtube-dl
 spec:
-  replicas: 0
+  replicas: 1
   selector:
     matchLabels:
       app: youtube-dl
@@ -52,7 +52,7 @@ spec:
       name: youtube-dl-audio
     spec:
       accessModes: 
-        - ReadWriteMany
+        - ReadWriteOnce
       volumeMode: Filesystem
       storageClassName: longhorn
       resources:
@@ -64,7 +64,7 @@ spec:
       name: youtube-dl-video
     spec:
       accessModes: 
-        - ReadWriteMany
+        - ReadWriteOnce
       volumeMode: Filesystem
       storageClassName: longhorn
       resources:
@@ -76,7 +76,7 @@ spec:
       name: youtube-dl-appdata
     spec:
       accessModes: 
-        - ReadWriteMany
+        - ReadWriteOnce
       volumeMode: Filesystem
       storageClassName: longhorn
       resources:
@@ -88,7 +88,7 @@ spec:
       name: youtube-dl-subscriptions
     spec:
       accessModes: 
-        - ReadWriteMany
+        - ReadWriteOnce
       volumeMode: Filesystem
       storageClassName: longhorn
       resources:
@@ -100,7 +100,7 @@ spec:
       name: youtube-dl-users
     spec:
       accessModes: 
-        - ReadWriteMany
+        - ReadWriteOnce
       volumeMode: Filesystem
       storageClassName: longhorn
       resources:
