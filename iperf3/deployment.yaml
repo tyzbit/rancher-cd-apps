@@ -61,4 +61,4 @@ spec:
       containers:
         - name: iperf3-client
           image: networkstatic/iperf3:latest
-          args: ["-c","iperf3-server"]
+          args: ["-c","iperf3-server","-t","0"]
