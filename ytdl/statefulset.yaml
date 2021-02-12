@@ -1,0 +1,108 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: youtube-dl
+  annotations:
+    # fluxcd.io/ignore: "true"
+  labels:
+    app: youtube-dl
+spec:
+  replicas: 0
+  selector:
+    matchLabels:
+      app: youtube-dl
+  serviceName: youtube-dl
+  template:
+    metadata:
+      labels:
+        app: youtube-dl
+    spec:
+      containers:
+      - name: youtube-dl
+        image: tzahi12345/youtubedl-material:latest
+        # command: ["tail","-f","/dev/null"]
+        imagePullPolicy: Always
+        env: 
+        - name: ALLOW_CONFIG_MUTATIONS
+          value: "true"
+        ports:
+        - containerPort: 17442
+          name: youtube-dl
+          protocol: TCP
+        volumeMounts:
+          - mountPath: /app/audio
+            name: youtube-dl-audio
+          - mountPath: /app/video
+            name: youtube-dl-video
+          - mountPath: /app/appdata
+            name: youtube-dl-appdata
+          - mountPath: /app/users
+            name: youtube-dl-users
+          - mountPath: /app/subscriptions
+            name: youtube-dl-subscriptions
+        resources:
+          requests:
+            memory: 512M
+          limits:
+            memory: 512M
+  volumeClaimTemplates:
+  - apiVersion: v1
+    kind: PersistentVolume
+    metadata:
+      name: youtube-dl-audio
+    spec:
+      accessModes: 
+        - ReadWriteMany
+      volumeMode: Filesystem
+      storageClassName: longhorn
+      resources:
+        requests:
+          storage: 40Gi
+  - apiVersion: v1
+    kind: PersistentVolume
+    metadata:
+      name: youtube-dl-video
+    spec:
+      accessModes: 
+        - ReadWriteMany
+      volumeMode: Filesystem
+      storageClassName: longhorn
+      resources:
+        requests:
+          storage: 100Gi
+  - apiVersion: v1
+    kind: PersistentVolume
+    metadata:
+      name: youtube-dl-appdata
+    spec:
+      accessModes: 
+        - ReadWriteMany
+      volumeMode: Filesystem
+      storageClassName: longhorn
+      resources:
+        requests:
+          storage: 1Gi
+  - apiVersion: v1
+    kind: PersistentVolume
+    metadata:
+      name: youtube-dl-subscriptions
+    spec:
+      accessModes: 
+        - ReadWriteMany
+      volumeMode: Filesystem
+      storageClassName: longhorn
+      resources:
+        requests:
+          storage: 1Gi
+  - apiVersion: v1
+    kind: PersistentVolume
+    metadata:
+      name: youtube-dl-users
+    spec:
+      accessModes: 
+        - ReadWriteMany
+      volumeMode: Filesystem
+      storageClassName: longhorn
+      resources:
+        requests:
+          storage: 100Gi
