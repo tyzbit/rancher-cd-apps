@@ -3,10 +3,9 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: iperf3-server
-  annotations:
-    install.operator.istio.io/version: 1
   labels:
     app: iperf3-server
+    version: 1
 spec:
   selector:
     matchLabels:
