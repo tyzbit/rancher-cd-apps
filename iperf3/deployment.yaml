@@ -3,13 +3,15 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: iperf3-server
+  annotations:
+    install.operator.istio.io/version: 1
   labels:
     app: iperf3-server
 spec:
   selector:
     matchLabels:
       app: iperf3-server
-  replicas: 1 # Set number of replicas to run - one replica per node
+  replicas: 1
   strategy:
     type: RollingUpdate
     rollingUpdate:
@@ -36,7 +38,7 @@ spec:
   selector:
     matchLabels:
       app: iperf3-client
-  replicas: 1 # Set number of replicas to run - one replica per node
+  replicas: 1
   strategy:
     type: RollingUpdate
     rollingUpdate:
