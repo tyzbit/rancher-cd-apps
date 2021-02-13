@@ -1,0 +1,26 @@
+# pulled from https://github.com/richstokes/k8s-fah
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: network-tools
+  labels:
+    app: network-tools
+spec:
+  selector:
+    matchLabels:
+      app: network-tools
+  replicas: 1
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 100%
+      maxSurge: 100%
+  template:
+    metadata:
+      labels:
+        app: network-tools
+    spec:
+      containers:
+        - name: network-tools
+          image: praqma/network-multitool:latest
+          command: ["tail","-f","/dev/null"]
