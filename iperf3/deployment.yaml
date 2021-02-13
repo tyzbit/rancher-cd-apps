@@ -36,7 +36,7 @@ spec:
   selector:
     matchLabels:
       app: iperf3-client
-  replicas: 0
+  replicas: 1
   strategy:
     type: RollingUpdate
     rollingUpdate:
@@ -61,4 +61,5 @@ spec:
       containers:
         - name: iperf3-client
           image: networkstatic/iperf3:latest
-          args: ["-c","iperf3-server","-t","0"]
+          command: ["tail","-f","/dev/null"]
+          #args: ["-c","iperf3-server","-t","0"]
