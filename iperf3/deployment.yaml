@@ -9,7 +9,7 @@ spec:
   selector:
     matchLabels:
       app: iperf3-server
-  replicas: 1
+  replicas: 0
   strategy:
     type: RollingUpdate
     rollingUpdate:
@@ -36,7 +36,7 @@ spec:
   selector:
     matchLabels:
       app: iperf3-client
-  replicas: 1
+  replicas: 0
   strategy:
     type: RollingUpdate
     rollingUpdate:
