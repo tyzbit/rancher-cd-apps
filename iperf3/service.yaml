@@ -3,7 +3,7 @@ kind: Service
 metadata:
   name: iperf3-server
 spec:
-  type: ClusterIP
+  type: LoadBalancer
   selector:
     app: iperf3-server
   ports:
