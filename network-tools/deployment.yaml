@@ -9,8 +9,6 @@ spec:
   selector:
     matchLabels:
       app: network-tools
-  strategy:
-    type: RollingUpdate
     rollingUpdate:
       maxUnavailable: 100%
       maxSurge: 100%
