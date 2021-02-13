@@ -28,7 +28,7 @@ spec:
                 - electrumx
             topologyKey: kubernetes.io/hostname
       containers:
-        - name: redis
+        - name: btc-rpc-explorer-cache
           image: redis
           ports:
             - containerPort: 6379
