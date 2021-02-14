@@ -25,7 +25,6 @@ spec:
                 operator: In
                 values:
                 - nextcloud-cache
-                - nextcloud-db
             topologyKey: kubernetes.io/hostname
       containers:
       - name: nextcloud

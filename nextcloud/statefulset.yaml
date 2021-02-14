@@ -16,7 +16,7 @@ spec:
         app: nextcloud-db
     spec:
       containers:
-        - name: mariadb
+        - name: nextcloud-db
           image: mariadb:10.5
           envFrom:
           - secretRef:
@@ -31,10 +31,10 @@ spec:
           resources:
             limits:
               # cpu: 100m
-              memory: 512M
+              memory: 128M
             requests:
               # cpu: 100m
-              memory: 512M
+              memory: 128M
       imagePullSecrets:
         - name: docker-hub
   volumeClaimTemplates:
@@ -49,7 +49,7 @@ spec:
       storageClassName: longhorn
       resources:
         requests:
-          storage: 20Gi
+          storage: 5Gi
 ---
 apiVersion: apps/v1
 kind: StatefulSet
@@ -70,18 +70,8 @@ spec:
       labels:
         app: nextcloud-cache
     spec:
-      affinity:
-        podAffinity:
-          requiredDuringSchedulingIgnoredDuringExecution:
-          - labelSelector:
-              matchExpressions:
-              - key: app
-                operator: In
-                values:
-                - nextcloud-db
-            topologyKey: kubernetes.io/hostname
       containers:
-        - name: redis
+        - name: nextcloud-cache
           image: redis
           ports:
             - containerPort: 6379
