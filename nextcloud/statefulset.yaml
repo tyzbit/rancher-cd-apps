@@ -18,7 +18,7 @@ spec:
       containers:
         - name: nextcloud-db
           image: mariadb:10.5
-          command: ["docker-entrypoint.sh","mysqld","--verbose"]
+          args: ["--verbose"]
           envFrom:
           - secretRef:
               name: nextcloud-db
