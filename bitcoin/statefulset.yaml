@@ -7,7 +7,7 @@ metadata:
   labels:
     app: bitcoin
 spec:
-  replicas: 0
+  replicas: 1
   selector:
     matchLabels:
       app: bitcoin
@@ -70,4 +70,4 @@ spec:
       storageClassName: longhorn
       resources:
         requests:
-          storage: 550Gi
+          storage: 420Gi
