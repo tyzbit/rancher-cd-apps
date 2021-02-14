@@ -31,10 +31,10 @@ spec:
           resources:
             limits:
               # cpu: 100m
-              memory: 512M
+              memory: 768Mi
             requests:
               # cpu: 100m
-              memory: 512M
+              memory: 768Mi
       imagePullSecrets:
         - name: docker-hub
   volumeClaimTemplates:
