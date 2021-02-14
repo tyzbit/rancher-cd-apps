@@ -18,6 +18,7 @@ spec:
       containers:
         - name: nextcloud-db
           image: mariadb:10.5
+          command: ["mysqld","--verbose"]
           envFrom:
           - secretRef:
               name: nextcloud-db
