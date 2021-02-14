@@ -44,6 +44,8 @@ spec:
             requests:
               cpu: 100m
               memory: 128M
+      imagePullSecrets:
+        - docker-hub
   volumeClaimTemplates:
   - apiVersion: v1
     kind: PersistentVolume

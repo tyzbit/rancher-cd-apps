@@ -51,3 +51,5 @@ spec:
               memory: 256M
             requests:
               memory: 256M
+      imagePullSecrets:
+        - docker-hub

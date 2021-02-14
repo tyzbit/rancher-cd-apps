@@ -24,6 +24,8 @@ spec:
         - name: iperf3
           image: networkstatic/iperf3:latest
           args: ["-s"]
+      imagePullSecrets:
+        - docker-hub
 ---
 # pulled from https://github.com/richstokes/k8s-fah
 apiVersion: apps/v1
@@ -63,3 +65,5 @@ spec:
           image: networkstatic/iperf3:latest
           command: ["tail","-f","/dev/null"]
           #args: ["-c","iperf3-server","-t","0"]
+      imagePullSecrets:
+        - docker-hub

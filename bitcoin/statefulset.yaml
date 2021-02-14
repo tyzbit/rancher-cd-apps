@@ -56,6 +56,8 @@ spec:
       #     nfs: 
       #       server: simulacrum
       #       path: /mnt/user/Blockchain
+      imagePullSecrets:
+        - docker-hub
   volumeClaimTemplates:
   - apiVersion: v1
     kind: PersistentVolume

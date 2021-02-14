@@ -59,6 +59,8 @@ spec:
       #     nfs: 
       #       server: simulacrum
       #       path: /mnt/user/ElectrumXData
+      imagePullSecrets:
+        - docker-hub
   volumeClaimTemplates:
   - apiVersion: v1
     kind: PersistentVolume
