@@ -18,7 +18,6 @@ spec:
       containers:
         - name: nextcloud-db
           image: mariadb:10.5
-          args: ["--verbose"]
           envFrom:
           - secretRef:
               name: nextcloud-db
@@ -32,10 +31,10 @@ spec:
           resources:
             limits:
               # cpu: 100m
-              memory: 128M
+              memory: 512M
             requests:
               # cpu: 100m
-              memory: 128M
+              memory: 512M
       imagePullSecrets:
         - name: docker-hub
   volumeClaimTemplates:
