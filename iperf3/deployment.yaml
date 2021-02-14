@@ -25,7 +25,7 @@ spec:
           image: networkstatic/iperf3:latest
           args: ["-s"]
       imagePullSecrets:
-        - docker-hub
+        - name: docker-hub
 ---
 # pulled from https://github.com/richstokes/k8s-fah
 apiVersion: apps/v1
