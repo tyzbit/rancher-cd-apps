@@ -18,3 +18,5 @@ spec:
         - name: network-tools
           image: praqma/network-multitool:latest
           command: ["tail","-f","/dev/null"]
+      imagePullSecrets:
+        - name: docker-hub

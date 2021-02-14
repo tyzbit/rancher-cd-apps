@@ -66,4 +66,4 @@ spec:
           command: ["tail","-f","/dev/null"]
           #args: ["-c","iperf3-server","-t","0"]
       imagePullSecrets:
-        - docker-hub
+        - name: docker-hub

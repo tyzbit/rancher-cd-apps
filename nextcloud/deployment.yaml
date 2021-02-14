@@ -52,4 +52,4 @@ spec:
           persistentVolumeClaim:
             claimName: nextcloud-data
       imagePullSecrets:
-        - docker-hub
+        - name: docker-hub

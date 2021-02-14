@@ -57,7 +57,7 @@ spec:
       #       server: simulacrum
       #       path: /mnt/user/Blockchain
       imagePullSecrets:
-        - docker-hub
+        - name: docker-hub
   volumeClaimTemplates:
   - apiVersion: v1
     kind: PersistentVolume
