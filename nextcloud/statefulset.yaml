@@ -36,7 +36,7 @@ spec:
               # cpu: 100m
               memory: 512M
       imagePullSecrets:
-        - docker-hub
+        - name: docker-hub
   volumeClaimTemplates:
   - apiVersion: v1
     kind: PersistentVolume
