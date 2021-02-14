@@ -7,7 +7,7 @@ metadata:
   labels:
     app: nextcloud
 spec:
-  replicas: 0
+  replicas: 1
   selector:
     matchLabels:
       app: nextcloud
@@ -30,7 +30,7 @@ spec:
       - name: nextcloud
         image: nextcloud:20
         imagePullPolicy: IfNotPresent
-        # command: ["tail","-f","/dev/null"]
+        command: ["tail","-f","/dev/null"]
         envFrom:
           - secretRef:
               name: nextcloud-config
