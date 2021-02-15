@@ -83,6 +83,8 @@ spec:
               name: dri
             - mountPath: /var/lib/fahclient
               name: fahclient
+      nodeSelector:
+        graphics: dri
       imagePullSecrets:
         - name: docker-hub
       # We make an emptyDir to mount on the work directory /var/lib/fahclient
