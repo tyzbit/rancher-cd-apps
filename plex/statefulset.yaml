@@ -36,7 +36,11 @@ spec:
           privileged: true
         resources:
           limits:
-            memory: 2G
+            cpu: 2000m
+            memory: 2Gi
+          requests:
+            cpu: 2000m
+            memory: 2Gi
       volumes:
         - name: braavos
           persistentVolumeClaim:

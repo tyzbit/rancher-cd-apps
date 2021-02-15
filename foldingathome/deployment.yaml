@@ -65,8 +65,12 @@ spec:
             - "--gpu=true"
           resources:
             limits:
+              cpu: 1000m
+              memory: 512Mi
               # nvidia.com/gpu: "1" # How many gpu's you want to donate per ndoe
             requests:
+              cpu: 1000m
+              memory: 512Mi
               # nvidia.com/gpu: "1"
           # Make the container harder to break out of or exploit
           securityContext:
