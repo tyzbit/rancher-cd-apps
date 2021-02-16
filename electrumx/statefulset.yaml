@@ -51,10 +51,10 @@ spec:
           #   name: simulacrum-electrumx
         resources:
           requests:
-            cpu: 1000m
+            cpu: 750m
             memory: 3072Mi
           limits:
-            cpu: 1000m
+            cpu: 750m
             memory: 3072Mi
       # volumes:
       #   - name: simulacrum-electrumx
