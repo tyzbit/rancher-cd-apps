@@ -46,10 +46,10 @@ spec:
           #   name: simulacrum-blockchain
         resources:
           requests:
-            cpu: 1000m
+            cpu: 500m
             memory: 2048Mi
           limits:
-            cpu: 1000m
+            cpu: 500m
             memory: 2048Mi
       # volumes:
       #   - name: simulacrum-blockchain

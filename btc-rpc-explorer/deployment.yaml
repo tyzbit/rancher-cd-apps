@@ -5,7 +5,7 @@ metadata:
   labels:
     app: btc-rpc-explorer
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: btc-rpc-explorer
@@ -48,10 +48,12 @@ spec:
               protocol: TCP
           resources:
             limits:
-              cpu: 1000m
+              ## Disabled so we have fast page loads
+              ## The container usually idles so this is fine
+              # cpu: 250m
               memory: 256Mi
             requests:
-              cpu: 1000m
+              # cpu: 250m
               memory: 256Mi
       imagePullSecrets:
         - name: docker-hub
