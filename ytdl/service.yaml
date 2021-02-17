@@ -3,7 +3,7 @@ kind: Service
 metadata:
   name: youtube-dl
 spec:
-  type: LoadBalancer
+  type: NodePort
   selector:
     app: youtube-dl
   ports:

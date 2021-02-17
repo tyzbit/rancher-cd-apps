@@ -3,7 +3,7 @@ kind: Service
 metadata:
   name: btc-rpc-explorer
 spec:
-  type: LoadBalancer
+  type: NodePort
   selector:
     app: btc-rpc-explorer
   ports:
