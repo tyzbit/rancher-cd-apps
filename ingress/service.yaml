@@ -1,0 +1,17 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: shared-ingress
+  labels:
+    name: shared-ingress
+spec:
+  rules:
+  - host: btc-rpc-explorer.jura
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            serviceName: btc-rpc-explorer
+            servicePort: 80
