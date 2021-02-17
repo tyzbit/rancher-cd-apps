@@ -21,7 +21,9 @@ spec:
   - host: btc.qtosw.com
     http:
       paths:
-      - backend:
+      - pathType: Prefix
+        path: "/"
+        backend:
           service:
             name: btc-rpc-explorer
             port:
@@ -29,7 +31,9 @@ spec:
   - host: cloud.qtosw.com
     http:
       paths:
-      - backend:
+      - pathType: Prefix
+        path: "/"
+        backend:
           service:
             name: nextcloud
             port:
@@ -37,7 +41,9 @@ spec:
   - host: ytdl.qtosw.com
     http:
       paths:
-      - backend:
+      - pathType: Prefix
+        path: "/"
+        backend:
           service:
             name: youtube-dl
             port:
