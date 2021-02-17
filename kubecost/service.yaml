@@ -4,7 +4,7 @@ metadata:
   name: kubecost
   namespace: kubecost
 spec:
-  type: LoadBalancer
+  type: NodePort
   selector:
     app: cost-analyzer
   ports:
