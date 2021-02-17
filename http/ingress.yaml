@@ -10,7 +10,7 @@ spec:
     service: 
       name: simulacrum
       port: 
-        number: 80
+        number: 8080
   # tls:
   #   - hosts:
   #       - btc.qtosw.com
