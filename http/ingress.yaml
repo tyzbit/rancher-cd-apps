@@ -38,14 +38,14 @@ spec:
             name: nextcloud
             port:
               number: 80
-  - host: ytdl.qtosw.com
+  - host: rancher.qtosw.com
     http:
       paths:
       - pathType: Prefix
         path: "/"
         backend:
           service:
-            name: youtube-dl
+            name: rancher
             port:
               number: 80
   - host: plex.qtosw.com
@@ -58,3 +58,13 @@ spec:
             name: plex
             port:
               number: 32400
+  - host: ytdl.qtosw.com
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: youtube-dl
+            port:
+              number: 80
