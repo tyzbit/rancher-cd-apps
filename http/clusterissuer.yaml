@@ -14,14 +14,3 @@ spec:
       http01:
         ingress:
           class: nginx
----
-apiVersion: cert-manager.io/v1alpha2
-kind: Certificate
-metadata:
-  name: letsencrypt
-  namespace: default
-spec:
-  secretName: letsencrypt
-  issuerRef:
-    name: letsencrypt
-    kind: ClusterIssuer
