@@ -15,9 +15,7 @@ spec:
         number: 8080
   tls:
     - hosts:
-        - btc.qtosw.com
-        - cloud.qtosw.com
-        - ytdl.qtosw.com
+        - "*.qtosw.com"
       secretName: letsencrypt
   rules:
   - host: btc.qtosw.com
