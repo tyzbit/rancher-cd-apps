@@ -7,7 +7,7 @@ spec:
   - name: default
     port: 80
     protocol: TCP
-    targetPort: 8443
+    targetPort: 8080
   clusterIP: None
   type: ClusterIP
 ---
@@ -21,5 +21,5 @@ subsets:
   - ip: 192.168.1.50
   ports:
   - name: default
-    port: 8443
+    port: 8080
     protocol: TCP
