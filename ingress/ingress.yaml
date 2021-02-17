@@ -14,5 +14,6 @@ spec:
         path: "/"
         backend:
           service:
-            serviceName: btc-rpc-explorer
-            servicePort: 80
+            name: btc-rpc-explorer
+            port:
+              number: 80
