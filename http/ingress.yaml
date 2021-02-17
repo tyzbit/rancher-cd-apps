@@ -48,3 +48,13 @@ spec:
             name: youtube-dl
             port:
               number: 80
+  - host: plex.qtosw.com
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: plex
+            port:
+              number: 32400
