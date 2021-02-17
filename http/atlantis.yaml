@@ -1,8 +1,8 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: rancher
-  namespace: cattle-system
+  name: atlantis-ingress
+  namespace: atlantis
   annotations:
     kubernetes.io/ingress.class: nginx
     cert-manager.io/cluster-issuer: letsencrypt
@@ -10,16 +10,16 @@ metadata:
 spec:
   tls:
     - hosts:
-        - "rancher.qtosw.com"
-      secretName: letsencrypt-rancher
+        - "atlantis.qtosw.com"
+      secretName: letsencrypt-atlantis
   rules:
-  - host: rancher.qtosw.com
+  - host: atlantis.qtosw.com
     http:
       paths:
       - pathType: Prefix
         path: "/"
         backend:
           service:
-            name: rancher
+            name: atlantis
             port:
-              number: 80
+              number: 4141
