@@ -12,7 +12,7 @@ spec:
   tls:
     - hosts:
         - "rancher.qtosw.com"
-      secretName: rancher-letsencrypt
+      secretName: letsencrypt-rancher
   rules:
   - host: rancher.qtosw.com
     http:
