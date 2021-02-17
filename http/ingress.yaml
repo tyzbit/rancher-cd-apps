@@ -11,12 +11,12 @@ spec:
       name: simulacrum
       port: 
         number: 8080
-  # tls:
-  #   - hosts:
-  #       - btc.qtosw.com
-  #       - cloud.qtosw.com
-  #       - ytdl.qtosw.com
-  #     secretName: letsencrypt
+  tls:
+    - hosts:
+        - btc.qtosw.com
+        - cloud.qtosw.com
+        - ytdl.qtosw.com
+      secretName: letsencrypt
   rules:
   - host: btc.qtosw.com
     http:
