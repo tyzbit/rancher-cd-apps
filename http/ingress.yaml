@@ -38,16 +38,6 @@ spec:
             name: nextcloud
             port:
               number: 80
-  - host: rancher.qtosw.com
-    http:
-      paths:
-      - pathType: Prefix
-        path: "/"
-        backend:
-          service:
-            name: rancher
-            port:
-              number: 80
   - host: plex.qtosw.com
     http:
       paths:
