@@ -49,16 +49,6 @@ spec:
             name: plex
             port:
               number: 32400
-  - host: rancher.qtosw.com
-    http:
-      paths:
-      - pathType: Prefix
-        path: "/"
-        backend:
-          service:
-            name: cattle-system:rancher
-            port:
-              number: 32400
   - host: ytdl.qtosw.com
     http:
       paths:
