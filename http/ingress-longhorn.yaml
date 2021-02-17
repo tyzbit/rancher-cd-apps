@@ -1,25 +1,25 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: kubecost
-  namespace: kubecost
+  name: longhorn
+  namespace: longhorn
   annotations:
     kubernetes.io/ingress.class: nginx
-    cert-manager.io/cluster-issuer: letsencrypt
+    # cert-manager.io/cluster-issuer: letsencrypt
     acme.cert-manager.io/http01-edit-in-place: "true"
 spec:
-  tls:
-    - hosts:
-        - "kubecost.qtosw.com"
-      secretName: letsencrypt-kubecost
+  # tls:
+  #   - hosts:
+  #       - "longhorn.qtosw.com"
+  #     secretName: letsencrypt-longhorn
   rules:
-  - host: kubecost.qtosw.com
+  - host: longhorn.jura
     http:
       paths:
       - pathType: Prefix
         path: "/"
         backend:
           service:
-            name: kubecost-cost-analyzer
+            name: longhorn-frontend
             port:
               number: 80
