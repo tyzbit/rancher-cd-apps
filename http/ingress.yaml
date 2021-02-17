@@ -18,6 +18,16 @@ spec:
   #       - ytdl.qtosw.com
   #     secretName: letsencrypt
   rules:
+  - host: rancher.qtosw.com
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: rancher
+            port:
+              number: 80
   - host: btc.qtosw.com
     http:
       paths:
