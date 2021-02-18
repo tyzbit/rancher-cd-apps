@@ -75,6 +75,6 @@ spec:
             secretName: motion-credentials
         - name: braavos
           persistentVolumeClaim:
-            claimName: braavos-media-pvc
+            claimName: braavos-camera-pvc
       imagePullSecrets:
         - name: docker-hub
