@@ -13,7 +13,7 @@ data:
       index index.php;
       root /usr/share/nginx/html;
       location /camera {
-        root /media/Camera;
+        root /media/;
       }
 
       location / {
