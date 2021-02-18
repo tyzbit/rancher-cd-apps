@@ -38,7 +38,7 @@ spec:
             name: motion-config
           - mountPath: "/passwords"
             name: motion-credentials
-          - mountPath: "/media"
+          - mountPath: "/media/Camera/"
             name: braavos
         resources:
           requests:
