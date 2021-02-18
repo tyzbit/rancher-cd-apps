@@ -34,7 +34,7 @@ spec:
         volumeMounts:
           - mountPath: "/usr/share/nginx/html"
             name: shared-www
-          - mountPath: "/etc/nginx/"
+          - mountPath: "/etc/nginx/conf.d/"
             name: motion-config
           - mountPath: "/passwords"
             name: motion-credentials
