@@ -38,6 +38,16 @@ spec:
             name: nextcloud
             port:
               number: 80
+  - host: motion.qtosw.com
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: motion
+            port:
+              number: 80
   - host: plex.qtosw.com
     http:
       paths:

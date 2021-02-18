@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: motion
+  annotations:
+    # fluxcd.io/ignore: "true"
+  labels:
+    app: motion
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: motion
+  template:
+    metadata:
+      labels:
+        app: motion
+    spec:
+      containers:
+      - name: motion
+        image: tyzbit/motion-browser
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 9000
+          name: http
+          protocol: TCP
+        volumeMounts:
+          - mountPath: "/media/"
+            name: braavos
+        resources:
+          requests:
+            cpu: 250m
+            memory: 128Mi
+          limits:
+            cpu: 250m
+            memory: 128Mi
+      volumes:
+        - name: braavos
+          persistentVolumeClaim:
+            claimName: braavos-media-pvc
+      imagePullSecrets:
+        - name: docker-hub
