@@ -16,8 +16,38 @@ spec:
       labels:
         app: motion
     spec:
+      initContainers:
+      - name: copy-data
+        image: tyzbit/motion-browser
+        command: ["cp","-r","/var/www/html","/shared-www"]
+        volumeMounts:
+        - mountPath: "/shared-www"
+          name: shared-www
       containers:
-      - name: motion
+      - name: nginx
+        image: nginx
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 80
+          name: http
+          protocol: TCP
+        volumeMounts:
+          - mountPath: "/usr/share/nginx/html"
+            name: shared-www
+          - mountPath: "/etc/nginx/"
+            name: nginx-conf
+          - mountPath: "/passwords"
+            name: motion-credentials
+          - mountPath: "/media"
+            name: braavos
+        resources:
+          requests:
+            cpu: 250m
+            memory: 64Mi
+          limits:
+            cpu: 250m
+            memory: 64Mi
+      - name: motion-browser
         image: tyzbit/motion-browser
         imagePullPolicy: Always
         ports:
@@ -35,6 +65,14 @@ spec:
             cpu: 250m
             memory: 128Mi
       volumes:
+        - name: shared-www
+          emptyDir: {}
+        - name: motion-config
+          configMap:
+            name: motion-config
+        - name: motion-credentials
+          secret:
+            secretName: motion-credentials
         - name: braavos
           persistentVolumeClaim:
             claimName: braavos-media-pvc
