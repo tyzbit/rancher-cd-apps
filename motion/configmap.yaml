@@ -5,7 +5,7 @@ metadata:
 data:
   nginx.conf: |
     server {
-      listen 80;
+      listen 80 default;
       server_name motion.qtosw.com;
       if ($http_x_forwarded_proto = "http") {
               rewrite        ^ https://$server_name$request_uri? permanent;
