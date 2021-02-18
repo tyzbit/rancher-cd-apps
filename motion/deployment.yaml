@@ -55,7 +55,7 @@ spec:
           name: http
           protocol: TCP
         volumeMounts:
-          - mountPath: "/media/"
+          - mountPath: "/media/Camera/"
             name: braavos
         resources:
           requests:
