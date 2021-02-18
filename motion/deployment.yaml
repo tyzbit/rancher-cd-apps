@@ -32,7 +32,7 @@ spec:
           name: http
           protocol: TCP
         volumeMounts:
-          - mountPath: "/usr/share/nginx/html"
+          - mountPath: "/usr/share/nginx/"
             name: shared-www
           - mountPath: "/etc/nginx/conf.d/"
             name: motion-config
