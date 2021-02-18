@@ -4,35 +4,39 @@ metadata:
   name: motion-config
 data:
   nginx.conf: |
-    listen 80;
-    server_name motion.qtosw.com;
-    if ($http_x_forwarded_proto = "http") {
-            rewrite        ^ https://$server_name$request_uri? permanent;
-    }
-    index index.php;
-    root /usr/share/nginx/html;
-    location /camera {
-      root /media/Camera;
-    }
+    http {
+      server {
+        listen 80;
+        server_name motion.qtosw.com;
+        if ($http_x_forwarded_proto = "http") {
+                rewrite        ^ https://$server_name$request_uri? permanent;
+        }
+        index index.php;
+        root /usr/share/nginx/html;
+        location /camera {
+          root /media/Camera;
+        }
 
-    location / {
-      satisfy any;
-      deny all;
-      auth_basic "Please Log In";
-      auth_basic_user_file /passwords/auth;
-      try_files $uri @php;
-    }
+        location / {
+          satisfy any;
+          deny all;
+          auth_basic "Please Log In";
+          auth_basic_user_file /passwords/auth;
+          try_files $uri @php;
+        }
 
-    location @php {
-      # include the fastcgi_param setting
-      include fastcgi.conf;
-      fastcgi_split_path_info ^(.+?\.php)(/.*)$;
-      if (!-f $document_root$fastcgi_script_name) {
-          return 404;
+        location @php {
+          # include the fastcgi_param setting
+          include fastcgi.conf;
+          fastcgi_split_path_info ^(.+?\.php)(/.*)$;
+          if (!-f $document_root$fastcgi_script_name) {
+              return 404;
+          }
+
+          # Mitigate https://httpoxy.org/ vulnerabilities
+          fastcgi_param HTTP_PROXY "";
+          fastcgi_pass motion-browser:9000;
+          fastcgi_index index.php;
+        }
       }
-
-      # Mitigate https://httpoxy.org/ vulnerabilities
-      fastcgi_param HTTP_PROXY "";
-      fastcgi_pass motion-browser:9000;
-      fastcgi_index index.php;
     }
