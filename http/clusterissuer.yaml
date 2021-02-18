@@ -10,7 +10,12 @@ spec:
       name: letsencrypt
     solvers:
     # An empty 'selector' means that this solver matches all domains
-    - selector: {}
-      http01:
+    - http01:
         ingress:
           class: nginx
+    - dns01:
+        cloudflare:
+          email: tyzbit@gmail.com
+          apiKeySecretRef:
+            name: default/cloudflare-apikey
+            key: apikey
