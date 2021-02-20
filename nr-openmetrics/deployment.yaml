@@ -92,10 +92,10 @@ data:
     # standalone: true
 
     # How often the integration should run. Defaults to 30s.
-    # scrape_duration: "30s"
+    # scrape_duration: "120s"
 
     # The HTTP client timeout when fetching data from endpoints. Defaults to 5s.
-    scrape_timeout: "60s"
+    scrape_timeout: "90s"
 
     # How old must the entries used for calculating the counters delta be
     # before the telemetry emitter expires them. Defaults to 5m.
