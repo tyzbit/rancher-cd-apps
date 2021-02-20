@@ -16,6 +16,7 @@ spec:
       annotations:
         prometheus.io/scrape: "true" 
         prometheus.io/port: "8089"
+        prometheus.io/path: "/metrics?address=192.168.1.140&legacy=false"
       labels:
         app: tplink-prometheus
     spec:
@@ -23,6 +24,8 @@ spec:
       containers:
         - name: tplink-prometheus
           image: zibby/tplink-exporter:latest
+          env: 
+            - 
           ports:
             - containerPort: 8089
       imagePullSecrets:
