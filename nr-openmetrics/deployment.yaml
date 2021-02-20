@@ -177,6 +177,13 @@ data:
     #   - 95
     #   - 99
 
+    transformations:
+        - description: "General processing rules"
+          ignore_metrics:
+            - prefixes:
+              - "go_"
+              - "process_"
+
     # transformations:
     #   - description: "General processing rules"
     #     rename_attributes:
