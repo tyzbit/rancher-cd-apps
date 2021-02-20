@@ -71,4 +71,15 @@ entries:
     urls:
     - https://github.com/tyzbit/rancher-cd-apps/releases/download/inspector-0.1.3/inspector-0.1.3.tgz
     version: 0.1.3
-generated: "2021-02-09T22:21:14.997593515Z"
+  tplink:
+  - apiVersion: v2
+    appVersion: latest
+    created: "2021-02-20T00:37:58.557088842Z"
+    description: TPLink Exporter
+    digest: 037ac7c424280c51321516a54d826f672e327d8b6ab17e0c1af64df97db94c77
+    name: tplink
+    type: application
+    urls:
+    - https://github.com/tyzbit/rancher-cd-apps/releases/download/tplink-0.1.0/tplink-0.1.0.tgz
+    version: 0.1.0
+generated: "2021-02-20T00:37:58.557132542Z"
