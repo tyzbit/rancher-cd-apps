@@ -4,9 +4,6 @@ kind: Deployment
 metadata:
   name: tplink-prometheus
   namespace: monitoring
-  annotations:
-    prometheus.io/scrape: "true" 
-    prometheus.io/port: "8089"
   labels:
     app: tplink-prometheus
 spec:
@@ -16,6 +13,9 @@ spec:
       app: tplink-prometheus
   template:
     metadata:
+      annotations:
+        prometheus.io/scrape: "true" 
+        prometheus.io/port: "8089"
       labels:
         app: tplink-prometheus
     spec:
