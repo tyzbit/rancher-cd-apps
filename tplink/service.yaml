@@ -7,7 +7,7 @@ spec:
   selector:
     app: tplink-dashboard
   ports:
-    - name: http
+    - name: tplink
       protocol: TCP
       port: 3000
       targetPort: 3000

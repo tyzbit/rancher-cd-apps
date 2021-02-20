@@ -17,5 +17,7 @@ spec:
       containers:
         - name: tplink-dashboard
           image: jbarnett/tplink-energy-monitor:latest
+          ports:
+            - containerPort: 3000
       imagePullSecrets:
         - name: docker-hub
