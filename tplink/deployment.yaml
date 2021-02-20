@@ -3,6 +3,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: tplink-prometheus
+  namespace: monitoring
   annotations:
     prometheus.io/scrape: "true" 
     prometheus.io/port: "8089"
