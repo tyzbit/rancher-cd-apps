@@ -30,14 +30,6 @@ spec:
             - name: http
               containerPort: 8089
               protocol: TCP
-          livenessProbe:
-            httpGet:
-              path: /metrics
-              port: http
-          readinessProbe:
-            httpGet:
-              path: /metrics
-              port: http
           resources:
             {{- toYaml $.Values.resources | nindent 12 }}
 ---
