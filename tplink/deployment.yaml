@@ -3,6 +3,9 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: tplink-prometheus
+  annotations:
+    prometheus.io/scrape: "true" 
+    prometheus.io/port: "8089"
   labels:
     app: tplink-prometheus
 spec:
@@ -20,6 +23,6 @@ spec:
         - name: tplink-prometheus
           image: zibby/tplink-exporter:latest
           ports:
-            - containerPort: 3000
+            - containerPort: 8089
       imagePullSecrets:
         - name: docker-hub
