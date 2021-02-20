@@ -1,0 +1,21 @@
+# pulled from https://github.com/richstokes/k8s-fah
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tplink-dashboard
+  labels:
+    app: tplink-dashboard
+spec:
+  selector:
+    matchLabels:
+      app: tplink-dashboard
+  template:
+    metadata:
+      labels:
+        app: tplink-dashboard
+    spec:
+      containers:
+        - name: tplink-dashboard
+          image: jbarnett/tplink-energy-monitor:latest
+      imagePullSecrets:
+        - name: docker-hub

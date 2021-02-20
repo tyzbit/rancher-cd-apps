@@ -59,6 +59,16 @@ spec:
             name: plex
             port:
               number: 32400
+  - host: tplink.qtosw.com
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: tplink
+            port:
+              number: 80        
   - host: ytdl.qtosw.com
     http:
       paths:
