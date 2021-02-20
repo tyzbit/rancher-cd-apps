@@ -3,6 +3,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: {{ include "tplink.fullname" $ }}-{{ $index }}
+  namespace: {{ $.Values.namespace }}
   labels:
     {{- include "tplink.labels" $ | nindent 4 }}
 spec:
