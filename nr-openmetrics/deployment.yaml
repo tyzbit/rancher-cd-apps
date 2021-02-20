@@ -182,9 +182,9 @@ data:
           ignore_metrics:
             - except:
               - kasa_
-            - prefixes:
-              - "go_"
-              - "process_"
+            # - prefixes:
+            #   - "go_"
+            #   - "process_"
 
     # transformations:
     #   - description: "General processing rules"
