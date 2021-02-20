@@ -71,8 +71,8 @@ spec:
           - name: LICENSE_KEY
             valueFrom:
               secretKeyRef:
-                - name: newrelic-license
-                  key: newrelic-license
+                name: newrelic-license
+                key: newrelic-license
           - name: "BEARER_TOKEN_FILE"
             value: "/var/run/secrets/kubernetes.io/serviceaccount/token"
           - name: "CA_FILE"
