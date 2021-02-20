@@ -1,0 +1,47 @@
+{{- range $index, $device := .Values.devices }}
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "tplink.fullname" $ }}-{{ $index }}
+  labels:
+    {{- include "tplink.labels" $ | nindent 4 }}
+spec:
+  selector:
+    matchLabels:
+      {{- include "tplink.selectorLabels" $ | nindent 6 }}
+  template:
+    metadata:
+      {{- with $.Values.podAnnotations }}
+      annotations:
+        {{- toYaml $ | nindent 8 }}
+      {{- end }}
+      labels:
+        {{- include "tplink.selectorLabels" $ | nindent 8 }}
+    spec:
+      imagePullSecrets:
+        {{- toYaml $.Values.imagePullSecrets | nindent 8 }}
+      containers:
+        - name: {{ $.Chart.Name }}
+          image: "{{ $.Values.image.repository }}:{{ $.Values.image.tag | default $.Chart.AppVersion }}"
+          imagePullPolicy: {{ $.Values.image.pullPolicy }}
+          env:
+            - name: TPLINK_ADDR
+              value: {{ $device }}
+            - name: LATER_FW
+              vaule: "true"
+          ports:
+            - name: http
+              containerPort: 80
+              protocol: TCP
+          livenessProbe:
+            httpGet:
+              path: /metrics
+              port: http
+          readinessProbe:
+            httpGet:
+              path: /metrics
+              port: http
+          resources:
+            {{- toYaml $.Values.resources | nindent 12 }}
+---
+{{- end }}
