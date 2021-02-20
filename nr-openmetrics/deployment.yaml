@@ -46,7 +46,7 @@ metadata:
   labels:
     app: nri-prometheus
 spec:
-  replicas: 0
+  replicas: 1
   selector:
     matchLabels:
       app: nri-prometheus
@@ -95,7 +95,7 @@ data:
     # scrape_duration: "30s"
 
     # The HTTP client timeout when fetching data from endpoints. Defaults to 5s.
-    # scrape_timeout: "5s"
+    scrape_timeout: "60s"
 
     # How old must the entries used for calculating the counters delta be
     # before the telemetry emitter expires them. Defaults to 5m.
@@ -180,6 +180,8 @@ data:
     transformations:
         - description: "General processing rules"
           ignore_metrics:
+            - except:
+              - kasa_
             - prefixes:
               - "go_"
               - "process_"
