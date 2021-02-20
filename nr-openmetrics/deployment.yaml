@@ -36,7 +36,7 @@ roleRef:
 subjects:
 - kind: ServiceAccount
   name: nri-prometheus
-  namespace: default
+  namespace: monitoring
 ---
 apiVersion: apps/v1
 kind: Deployment
