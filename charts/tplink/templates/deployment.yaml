@@ -28,7 +28,7 @@ spec:
             - name: TPLINK_ADDR
               value: {{ $device }}
             - name: LATER_FW
-              vaule: "true"
+              value: "true"
           ports:
             - name: http
               containerPort: 80
