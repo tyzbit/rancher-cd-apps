@@ -68,7 +68,7 @@ spec:
           service:
             name: tplink
             port:
-              number: 80        
+              number: 3000    
   - host: ytdl.qtosw.com
     http:
       paths:
