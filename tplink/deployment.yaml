@@ -7,7 +7,7 @@ metadata:
   labels:
     app: tplink-prometheus
 spec:
-  replicas: 1
+  replicas: 0
   selector:
     matchLabels:
       app: tplink-prometheus
@@ -20,7 +20,6 @@ spec:
       labels:
         app: tplink-prometheus
     spec:
-      hostNetwork: true
       containers:
         - name: tplink-prometheus
           image: zibby/tplink-exporter:latest
