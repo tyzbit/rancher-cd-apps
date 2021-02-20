@@ -59,16 +59,6 @@ spec:
             name: plex
             port:
               number: 32400
-  - host: tplink.qtosw.com
-    http:
-      paths:
-      - pathType: Prefix
-        path: "/"
-        backend:
-          service:
-            name: tplink-dashboard
-            port:
-              number: 3000    
   - host: ytdl.qtosw.com
     http:
       paths:

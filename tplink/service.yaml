@@ -1,13 +1,13 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: tplink-dashboard
+  name: tplink-prometheus
 spec:
   type: ClusterIP
   selector:
-    app: tplink-dashboard
+    app: tplink-prometheus
   ports:
     - name: tplink
       protocol: TCP
-      port: 3000
-      targetPort: 3000
+      port: 8089
+      targetPort: 8089
