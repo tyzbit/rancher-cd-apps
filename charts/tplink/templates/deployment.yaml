@@ -27,9 +27,17 @@ spec:
             - name: LATER_FW
               value: "true"
           ports:
-            - name: http
+            - name: prometheus
               containerPort: 8089
               protocol: TCP
+          livenessProbe:
+            httpGet:
+              path: /metrics
+              port: prometheus
+          readinessProbe:
+            httpGet:
+              path: /metrics
+              port: prometheus
           resources:
             {{- toYaml $.Values.resources | nindent 12 }}
 ---
