@@ -2,7 +2,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "tplink.fullname" $ }}-{{ $index }}
+  name: {{ $device.name }}-smartplug
   namespace: {{ $.Values.namespace }}
   labels:
     {{- include "tplink.labels" $ | nindent 4 }}
@@ -14,8 +14,8 @@ spec:
     metadata:
       annotations:
         prometheus.io/scrape: "true" 
-        prometheus.io/port: "8089"
-        prometheus.io/path: "/metrics?address={{ $device }}&legacy=false"
+        prometheus.io/port: "{{ $.Values.service.port }}"
+        prometheus.io/path: "/metrics?address={{ $device.address }}&legacy=false"
       labels:
         {{- include "tplink.selectorLabels" $ | nindent 8 }}
     spec:
@@ -27,12 +27,12 @@ spec:
           imagePullPolicy: {{ $.Values.image.pullPolicy }}
           env:
             - name: TPLINK_ADDR
-              value: {{ $device }}
+              value: {{ $device.address }}
             - name: LATER_FW
               value: "true"
           ports:
             - name: prometheus
-              containerPort: 8089
+              containerPort: {{ $.Values.service.port }}
               protocol: TCP
           livenessProbe:
             httpGet:
