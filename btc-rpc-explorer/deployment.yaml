@@ -51,9 +51,9 @@ spec:
               ## Disabled so we have fast page loads
               ## The container usually idles so this is fine
               # cpu: 250m
-              memory: 512Mi
+              memory: 51Mi
             requests:
               # cpu: 250m
-              memory: 512Mi
+              memory: 51Mi
       imagePullSecrets:
         - name: docker-hub
