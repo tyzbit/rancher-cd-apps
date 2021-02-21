@@ -2,7 +2,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ $device.name }}-smartplug
+  name: smartplug-{{ $device.name }}
   namespace: {{ $.Values.namespace }}
   labels:
     {{- include "tplink.labels" $ | nindent 4 }}
