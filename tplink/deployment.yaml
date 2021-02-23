@@ -23,6 +23,9 @@ spec:
       containers:
         - name: tplink-prometheus
           image: zibby/tplink-exporter:latest
+          env:
+          - name: LATER_FW
+            value: "true"
           ports:
             - containerPort: 8089
       imagePullSecrets:
