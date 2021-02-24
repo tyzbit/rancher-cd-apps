@@ -1,6 +1,6 @@
 # pulled from https://github.com/richstokes/k8s-fah
 apiVersion: apps/v1
-kind: Deployment
+kind: DaemonSet
 metadata:
   name: foldingathome
   labels:
@@ -9,27 +9,27 @@ spec:
   selector:
     matchLabels:
       app: foldingathome
-  replicas: 0 # Set number of replicas to run - one replica per node
-  strategy:
-    type: RollingUpdate
-    rollingUpdate:
-      maxUnavailable: 100%
-      maxSurge: 100%
+  # replicas: 0 # Set number of replicas to run - one replica per node
+  # strategy:
+  #   type: RollingUpdate
+  #   rollingUpdate:
+  #     maxUnavailable: 100%
+  #     maxSurge: 100%
   template:
     metadata:
       labels:
         app: foldingathome
     spec:
-      affinity:
-        podAntiAffinity:
-          requiredDuringSchedulingIgnoredDuringExecution:
-          - labelSelector:
-              matchExpressions:
-              - key: app
-                operator: In
-                values:
-                - foldingathome
-            topologyKey: "kubernetes.io/hostname"
+      # affinity:
+      #   podAntiAffinity:
+      #     requiredDuringSchedulingIgnoredDuringExecution:
+      #     - labelSelector:
+      #         matchExpressions:
+      #         - key: app
+      #           operator: In
+      #           values:
+      #           - foldingathome
+      #       topologyKey: "kubernetes.io/hostname"
 
       initContainers:
         - name: copy-config
@@ -83,8 +83,8 @@ spec:
               name: dri
             - mountPath: /var/lib/fahclient
               name: fahclient
-      nodeSelector:
-        graphics: dri
+      # nodeSelector:
+      #   graphics: dri
       imagePullSecrets:
         - name: docker-hub
       # We make an emptyDir to mount on the work directory /var/lib/fahclient
@@ -97,4 +97,5 @@ spec:
           configMap:
             name: foldingathome-config
         - name: fahclient
-          emptyDir: {}
+          emptyDir: 
+            medium: Memory
