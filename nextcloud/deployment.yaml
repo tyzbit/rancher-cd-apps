@@ -7,7 +7,7 @@ metadata:
   labels:
     app: nextcloud
 spec:
-  replicas: 1
+  replicas: 0 # normally 1
   selector:
     matchLabels:
       app: nextcloud
