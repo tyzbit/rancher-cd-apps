@@ -5,7 +5,7 @@ metadata:
   labels:
     app: nextcloud-db
 spec:
-  replicas: 0 # normally 1
+  replicas: 1
   selector:
     matchLabels:
       app: nextcloud-db
@@ -60,7 +60,7 @@ metadata:
   labels:
     app: nextcloud-cache
 spec:
-  replicas: 0 # normally 1
+  replicas: 1
   selector:
     matchLabels:
       app: nextcloud-cache
