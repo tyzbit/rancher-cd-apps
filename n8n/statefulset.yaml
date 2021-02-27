@@ -18,6 +18,7 @@ spec:
       containers:
         - name: n8n
           image: n8nio/n8n:latest
+          command: ["tail","-f","/dev/null"]
           ports:
             - containerPort: 5678
               name: http
