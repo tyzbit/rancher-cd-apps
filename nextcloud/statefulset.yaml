@@ -116,6 +116,7 @@ spec:
   selector:
     matchLabels:
       app: nextcloud
+  serviceName: nextcloud
   template:
     metadata:
       labels:
