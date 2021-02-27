@@ -48,7 +48,7 @@ spec:
           service:
             name: motion
             port:
-              number: 80          
+              number: 80        
   - host: plex.qtosw.com
     http:
       paths:

@@ -1,0 +1,49 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: n8n
+  labels:
+    app: n8n
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: n8n
+  serviceName: n8n
+  template:
+    metadata:
+      labels:
+        app: n8n
+    spec:
+      containers:
+        - name: n8n
+          image: n8nio/n8n:latest
+          ports:
+            - containerPort: 80
+              name: http
+              protocol: TCP
+          volumeMounts:
+            - name: n8n-data
+              mountPath: /home/node/.n8n
+          resources:
+            limits:
+              cpu: 500m
+              memory: 256Mi
+            requests:
+              cpu: 500m
+              memory: 256Mi
+      imagePullSecrets:
+        - name: docker-hub
+  volumeClaimTemplates:
+  - apiVersion: v1
+    kind: PersistentVolume
+    metadata:
+      name: n8n-data
+    spec:
+      accessModes: 
+        - ReadWriteOnce
+      volumeMode: Filesystem
+      storageClassName: longhorn
+      resources:
+        requests:
+          storage: 1Gi

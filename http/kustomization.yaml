@@ -4,6 +4,7 @@ resources:
   - clusterissuer.yaml
   - ingress-atlantis.yaml
   - ingress-longhorn.yaml
+  - ingress-n8n.yaml
   - ingress-rancher.yaml
   - ingress.yaml
   - service.yaml
