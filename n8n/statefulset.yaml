@@ -19,9 +19,9 @@ spec:
         - name: n8n
           image: n8nio/n8n:latest
           #command: ["tail","-f","/dev/null"]
-          env:
-          - name: N8N_PORT
-            value: "5678"
+          envFrom:
+          - secretRef:
+              name: n8n-config
           ports:
             - containerPort: 5678
               name: http
