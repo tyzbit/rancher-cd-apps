@@ -3,6 +3,7 @@ kind: Kustomization
 resources:
   - clusterissuer.yaml
   - ingress-atlantis.yaml
+  - ingress-kiali.yaml
   - ingress-longhorn.yaml
   - ingress-n8n.yaml
   - ingress-rancher.yaml
