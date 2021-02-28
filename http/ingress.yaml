@@ -49,7 +49,7 @@ spec:
             name: motion
             port:
               number: 80        
-  - host: plex.qtosw.com
+  - host: plex-backup.qtosw.com
     http:
       paths:
       - pathType: Prefix
