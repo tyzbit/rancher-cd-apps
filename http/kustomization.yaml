@@ -7,5 +7,6 @@ resources:
   - ingress-n8n.yaml
   - ingress-rancher.yaml
   - ingress-scope.yaml
+  - ingress-skydive.yaml
   - ingress.yaml
   - service.yaml
