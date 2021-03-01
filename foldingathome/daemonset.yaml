@@ -12,12 +12,6 @@ spec:
   selector:
     matchLabels:
       app: foldingathome
-  # replicas: 0 # Set number of replicas to run - one replica per node
-  # strategy:
-  #   type: RollingUpdate
-  #   rollingUpdate:
-  #     maxUnavailable: 100%
-  #     maxSurge: 100%
   template:
     metadata:
       labels:
@@ -34,11 +28,11 @@ spec:
       #           - foldingathome
       #       topologyKey: "kubernetes.io/hostname"
 
-      # Don't run on unschedulable nodes
-      tolerations:
-        - key: "node.kubernetes.io/unschedulable"
-          operator: Exists
-          effect: NoSchedule
+      # # Don't run on unschedulable nodes
+      # tolerations:
+      #   - key: "node.kubernetes.io/unschedulable"
+      #     operator: Exists
+      #     effect: NoSchedule
 
       initContainers:
         - name: copy-config
