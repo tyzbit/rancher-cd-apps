@@ -20,6 +20,9 @@ spec:
       labels:
         app: foldingathome
     spec:
+      updateStrategy:
+        rollingUpdate:
+          maxUnavailable: 100%
       # affinity:
       #   podAntiAffinity:
       #     requiredDuringSchedulingIgnoredDuringExecution:
