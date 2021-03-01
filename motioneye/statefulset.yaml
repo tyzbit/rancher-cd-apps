@@ -60,7 +60,7 @@ spec:
       volumes:
         - name: braavos-camera
           persistentVolumeClaim:
-            claimName: braavos-camera-motioneye-pvc
+            claimName: braavos-camera-pvc
       imagePullSecrets:
         - name: docker-hub
   volumeClaimTemplates:
