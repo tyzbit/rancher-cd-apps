@@ -21,7 +21,7 @@ spec:
   selector:
     app: nextcloud-db
   ports:
-    - name: mariadb
+    - name: mysql-mariadb
       protocol: TCP
       port: 3306
       targetPort: 3306

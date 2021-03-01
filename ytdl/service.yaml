@@ -7,7 +7,7 @@ spec:
   selector:
     app: youtube-dl
   ports:
-    - name: youtube-dl
+    - name: http-youtube-dl
       protocol: TCP
       port: 80
       targetPort: 17442

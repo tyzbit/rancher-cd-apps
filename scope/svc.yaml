@@ -11,7 +11,7 @@ metadata:
   namespace: weave
 spec:
   ports:
-    - name: app
+    - name: http-app
       port: 80
       protocol: TCP
       targetPort: 4040
