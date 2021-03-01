@@ -12,6 +12,8 @@ spec:
   serviceName: nextcloud-db
   template:
     metadata:
+      annotations:
+        linkerd.io/inject: enabled
       labels:
         app: nextcloud-db
     spec:
@@ -67,6 +69,8 @@ spec:
   serviceName: nextcloud-cache
   template:
     metadata:
+      annotations:
+        linkerd.io/inject: enabled
       labels:
         app: nextcloud-cache
     spec:

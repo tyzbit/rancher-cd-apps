@@ -14,6 +14,8 @@ spec:
   serviceName: youtube-dl
   template:
     metadata:
+      annotations:
+        linkerd.io/inject: enabled
       labels:
         app: youtube-dl
     spec:

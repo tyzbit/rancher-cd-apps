@@ -11,6 +11,8 @@ spec:
       app: network-tools
   template:
     metadata:
+      annotations:
+        linkerd.io/inject: enabled
       labels:
         app: network-tools
     spec:

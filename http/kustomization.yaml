@@ -4,6 +4,7 @@ resources:
   - clusterissuer.yaml
   - ingress-atlantis.yaml
   # - ingress-kiali.yaml
+  - ingress-kubecost.yaml
   - ingress-linkerd.yaml
   - ingress-longhorn.yaml
   - ingress-motioneye.yaml
