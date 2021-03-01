@@ -29,7 +29,7 @@ spec:
           value: "true"
         ports:
         - containerPort: 17442
-          name: youtube-dl
+          name: http-youtube-dl
           protocol: TCP
         volumeMounts:
           - mountPath: /app/audio
