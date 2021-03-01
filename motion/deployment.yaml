@@ -56,7 +56,7 @@ spec:
           protocol: TCP
         volumeMounts:
           - mountPath: "/media/Camera/"
-            name: braavos
+            name: braavos-camera
         resources:
           requests:
             cpu: 250m
@@ -74,8 +74,8 @@ spec:
         - name: motion-credentials
           secret:
             secretName: motion-credentials
-        - name: braavos
+        - name: braavos-camera
           persistentVolumeClaim:
-            claimName: braavos-camera-pvc
+            claimName: braavos-camera-motion-pvc
       imagePullSecrets:
         - name: docker-hub
