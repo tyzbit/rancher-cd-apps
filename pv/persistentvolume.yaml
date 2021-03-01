@@ -39,6 +39,8 @@ metadata:
 spec:
   accessModes:
   - ReadWriteMany
+  capacity:
+    storage: 256Mi
   hostPath:
     path: /dev/dri
   persistentVolumeReclaimPolicy: Retain
