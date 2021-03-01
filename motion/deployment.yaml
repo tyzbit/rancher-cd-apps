@@ -39,7 +39,7 @@ spec:
           - mountPath: "/passwords"
             name: motion-credentials
           - mountPath: "/media/camera/"
-            name: braavos
+            name: braavos-camera
         resources:
           requests:
             cpu: 250m
