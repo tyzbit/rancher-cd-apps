@@ -36,9 +36,9 @@ spec:
 
       # Don't run on unschedulable nodes
       tolerations:
-        - key: node.kubernetes.io/unschedulable
+        - key: "node.kubernetes.io/unschedulable"
           operator: Exists
-          effect: NoExecute
+          effect: NoSchedule
           tolerationSeconds: 10
 
       initContainers:
