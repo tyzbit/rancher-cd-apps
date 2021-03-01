@@ -39,7 +39,6 @@ spec:
         - key: "node.kubernetes.io/unschedulable"
           operator: Exists
           effect: NoSchedule
-          tolerationSeconds: 10
 
       initContainers:
         - name: copy-config
