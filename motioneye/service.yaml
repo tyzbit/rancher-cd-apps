@@ -3,7 +3,7 @@ kind: Service
 metadata:
   name: motioneye
 spec:
-  type: NodePort
+  type: LoadBalancer
   selector:
     app: motioneye
   ports:
