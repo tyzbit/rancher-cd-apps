@@ -10,7 +10,7 @@ spec:
   capacity:
     storage: 16Ti
   nfs:
-    path: /nfs/Camera
+    path: /nfs/Camera/
     server: braavos.jura
   persistentVolumeReclaimPolicy: Retain
   volumeMode: Filesystem
@@ -27,7 +27,7 @@ spec:
   capacity:
     storage: 16Ti
   nfs:
-    path: /nfs/media
+    path: /nfs/media/
     server: braavos.jura
   persistentVolumeReclaimPolicy: Retain
   volumeMode: Filesystem
