@@ -22,7 +22,7 @@ spec:
         imagePullPolicy: Always
         # command: ["tail","-f","/dev/null"]
         envFrom:
-          - configMap:
+          - configMapRef:
               name: plex-config
         ports:
          - containerPort: 32400
