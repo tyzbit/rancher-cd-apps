@@ -34,9 +34,9 @@ spec:
       # Don't run on unschedulable nodes
       tolerations:
         - key: node.kubernetes.io/unschedulable
-          operator: Equal
-          value: NoSchedule
+          operator: Exists
           effect: NoExecute
+          tolerationSeconds: 0
 
       initContainers:
         - name: copy-config
