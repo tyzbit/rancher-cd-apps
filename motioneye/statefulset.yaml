@@ -54,10 +54,10 @@ spec:
             name: motioneye-config
         resources:
           requests:
-            cpu: 1500m
+            cpu: 2000m
             memory: 2Gi
           limits:
-            cpu: 1500m
+            cpu: 2000m
             memory: 2Gi
       volumes:
         - name: dri
