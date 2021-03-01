@@ -21,6 +21,9 @@ spec:
         image: plexinc/pms-docker
         imagePullPolicy: Always
         # command: ["tail","-f","/dev/null"]
+        envFrom:
+          - configMap:
+              name: plex-config
         ports:
          - containerPort: 32400
         volumeMounts:
