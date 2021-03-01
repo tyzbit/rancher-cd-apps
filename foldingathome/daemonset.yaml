@@ -31,6 +31,13 @@ spec:
       #           - foldingathome
       #       topologyKey: "kubernetes.io/hostname"
 
+      # Don't run on unschedulable nodes
+      tolerations:
+        - key: node.kubernetes.io/unschedulable
+          operator: Equal
+          value: NoSchedule
+          effect: NoExecute
+
       initContainers:
         - name: copy-config
           imagePullPolicy: Always
