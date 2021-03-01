@@ -52,8 +52,8 @@ spec:
           persistentVolumeClaim:
             claimName: dri-pvc
         - name: transcode
-          emptyDir: {}
-            #medium: Memory
+          emptyDir:
+            medium: Memory
       nodeSelector:
         graphics: dri
       imagePullSecrets:
