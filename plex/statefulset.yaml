@@ -33,8 +33,8 @@ spec:
             name: dri
           - mountPath: "/config"
             name: plex-config
-          # - mountPath: "/external"
-          #   name: local
+          - mountPath: "/transcode"
+            name: transcode
         securityContext:
           privileged: true
         resources:
@@ -51,10 +51,9 @@ spec:
         - name: dri
           persistentVolumeClaim:
             claimName: dri-pvc
-        # - name: local
-        #   hostPath:
-        #     path: /mnt/external/
-        #     type: DirectoryOrCreate
+        - name: transcode
+          emptyDir: {}
+            #medium: Memory
       nodeSelector:
         graphics: dri
       imagePullSecrets:
