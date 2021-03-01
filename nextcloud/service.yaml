@@ -21,7 +21,7 @@ spec:
   selector:
     app: nextcloud-db
   ports:
-    - name: mysql-mariadb
+    - name: tcp-mariadb
       protocol: TCP
       port: 3306
       targetPort: 3306
@@ -35,7 +35,7 @@ spec:
   selector:
     app: nextcloud-cache
   ports:
-    - name: redis
+    - name: tcp-redis
       protocol: TCP
       port: 6379
       targetPort: 6379

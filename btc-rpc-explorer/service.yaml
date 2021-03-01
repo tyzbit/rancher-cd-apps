@@ -21,7 +21,7 @@ spec:
   selector:
     app: btc-rpc-explorer-cache
   ports:
-    - name: redis
+    - name: tcp-redis
       protocol: TCP
       port: 6379
       targetPort: 6379
