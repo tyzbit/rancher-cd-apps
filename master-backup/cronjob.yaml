@@ -23,8 +23,6 @@ spec:
             env:
             - name: ETCDCTL_API
               value: "3"
-            - name: TZ
-              value: Etc/UTC
             command: ["/bin/sh"]
             args: ["-c", "etcdctl --endpoints=https://127.0.0.1:2379 --cacert=/etc/kubernetes/pki/etcd/ca.crt --cert=/etc/kubernetes/pki/etcd/healthcheck-client.crt --key=/etc/kubernetes/pki/etcd/healthcheck-client.key snapshot save /backup/etcd-snapshot-latest.db"]
             volumeMounts:
@@ -36,9 +34,6 @@ spec:
           - name: k8s-backup
             image: busybox
             imagePullPolicy: IfNotPresent
-            env:
-            - name: TZ
-              value: Etc/UTC
             command: ["/bin/sh"]
             args: ["-c", "cp -r /etc/kubernetes/pki/ /backup/"]
             volumeMounts:
