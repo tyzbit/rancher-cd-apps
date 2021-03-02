@@ -43,8 +43,5 @@ spec:
               path: /etc/kubernetes/pki/etcd
               type: DirectoryOrCreate
           - name: backup
-            mountOptions:
-              - nfsvers=3
-            nfs:
-              path: /mnt/user/appdata/KubernetesETCDBackup
-              server: simulacrum.jura
+            persistentVolumeClaim:
+              claimName: simulacrum-etcd-backup-pvc

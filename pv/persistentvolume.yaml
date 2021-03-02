@@ -45,3 +45,19 @@ spec:
     path: /dev/dri
   persistentVolumeReclaimPolicy: Retain
   volumeMode: Filesystem
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: simulacrum-etcd-backup-pv
+spec:
+  accessModes:
+  - ReadWriteMany
+  capacity:
+    storage: 1Gi
+  persistentVolumeReclaimPolicy: Retain
+  mountOptions:
+  - nfsvers=3
+  nfs:
+    path: /mnt/user/appdata/KubernetesETCDBackup
+    server: simulacrum.jura
