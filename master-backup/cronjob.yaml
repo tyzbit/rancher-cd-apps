@@ -44,4 +44,4 @@ spec:
           - name: backup
             nfs:
               path: /mnt/user/appdata/KubernetesETCDBackup/
-              server: simulacrum
+              server: simulacrum.jura
