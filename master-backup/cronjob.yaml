@@ -9,7 +9,7 @@ spec:
   schedule: "*/3 * * * *"
   jobTemplate:
     spec:
-      activeDeadlineSeconds: 30
+      activeDeadlineSeconds: 60
       backoffLimit: 2
       completions: 1
       parallelism: 1
@@ -44,5 +44,5 @@ spec:
               type: DirectoryOrCreate
           - name: backup
             nfs:
-              path: /mnt/user/appdata/KubernetesETCDBackup/
-              server: simulacrum.jura
+              path: /nfs/k8s-backup
+              server: braavos.jura
