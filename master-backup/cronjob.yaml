@@ -4,6 +4,7 @@ metadata:
   name: etcd-backup
   namespace: kube-system
 spec:
+  successfulJobsHistoryLimit: 6
   # activeDeadlineSeconds: 100
   schedule: "*/3 * * * *"
   jobTemplate:
@@ -13,7 +14,7 @@ spec:
           containers:
           - name: etcd-backup
             # Same image as in /etc/kubernetes/manifests/etcd.yaml
-            image: k8s.gcr.io/etcd:3.4.13
+            image: k8s.gcr.io/etcd:3.4.13-0
             env:
             - name: ETCDCTL_API
               value: "3"
