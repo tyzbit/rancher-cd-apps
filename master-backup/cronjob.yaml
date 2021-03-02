@@ -9,6 +9,7 @@ spec:
   schedule: "*/3 * * * *"
   jobTemplate:
     spec:
+      parallelism: 1
       template:
         spec:
           containers:
