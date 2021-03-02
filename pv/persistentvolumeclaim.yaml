@@ -49,7 +49,7 @@ metadata:
   name: simulacrum-etcd-backup-pvc
   namespace: kube-system
 spec:
-  volumeName: 
+  volumeName: simulacrum-etcd-backup-pv
   accessModes: 
     - ReadWriteMany
   volumeMode: Filesystem
