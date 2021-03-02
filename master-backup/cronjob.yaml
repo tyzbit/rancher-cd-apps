@@ -9,6 +9,8 @@ spec:
   schedule: "*/3 * * * *"
   jobTemplate:
     spec:
+      backoffLimit: 2
+      completions: 1
       parallelism: 1
       template:
         spec:
