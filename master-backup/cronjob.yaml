@@ -44,5 +44,5 @@ spec:
               type: DirectoryOrCreate
           - name: backup
             nfs:
-              path: /nfs/k8s-backup
-              server: braavos.jura
+              path: /mnt/user/appdata/KubernetesETCDBackup
+              server: simulacrum.jura
