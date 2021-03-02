@@ -44,4 +44,4 @@ spec:
               type: DirectoryOrCreate
           - name: backup
             persistentVolumeClaim:
-              claimName: simulacrum-etcd-backup-pvc
+              claimName: braavos-etcd-backup-pvc

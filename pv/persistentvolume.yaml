@@ -49,7 +49,7 @@ spec:
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: simulacrum-etcd-backup-pv
+  name: braavos-etcd-backup-pv
 spec:
   accessModes:
   - ReadWriteMany

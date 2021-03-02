@@ -46,7 +46,7 @@ spec:
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: simulacrum-etcd-backup-pvc
+  name: braavos-etcd-backup-pvc
   namespace: kube-system
 spec:
   volumeName: simulacrum-etcd-backup-pv
