@@ -1,7 +1,7 @@
 apiVersion: batch/v1beta1
 kind: CronJob
 metadata:
-  name: backup
+  name: etcd-backup
   namespace: kube-system
 spec:
   # activeDeadlineSeconds: 100
@@ -11,7 +11,7 @@ spec:
       template:
         spec:
           containers:
-          - name: backup
+          - name: etcd-backup
             # Same image as in /etc/kubernetes/manifests/etcd.yaml
             image: k8s.gcr.io/etcd:3.4.13
             env:
@@ -27,7 +27,7 @@ spec:
               name: backup
           restartPolicy: OnFailure
           nodeSelector:
-            node-role.kubernetes.io/master: '*' 
+            node-role.kubernetes.io/master: '' 
           tolerations:
           - effect: NoSchedule
             operator: Exists
