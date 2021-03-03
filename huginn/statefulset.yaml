@@ -15,7 +15,7 @@ spec:
       annotations:
         linkerd.io/inject: enabled
       labels:
-        app: huginn
+        app: huginn-db
     spec:
       # securityContext:
       #   runAsUser: 1001
