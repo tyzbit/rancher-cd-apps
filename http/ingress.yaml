@@ -42,6 +42,16 @@ spec:
             name: nextcloud
             port:
               number: 80
+  - host: huginn.qtosw.com
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: huginn
+            port:
+              number: 80
   - host: motion.qtosw.com
     http:
       paths:
