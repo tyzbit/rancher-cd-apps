@@ -70,7 +70,7 @@ spec:
   template:
     metadata:
       annotations:
-        linkerd.io/inject: enabled
+        #linkerd.io/inject: enabled
       labels:
         app: nextcloud-cache
     spec:
