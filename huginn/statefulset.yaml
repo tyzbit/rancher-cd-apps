@@ -17,6 +17,9 @@ spec:
       labels:
         app: huginn
     spec:
+      securityContext:
+        runAsUser: 1001
+        fsGroup: 1001
       containers:
         - name: huginn
           image: huginn/huginn:latest
