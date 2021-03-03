@@ -1,15 +1,15 @@
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
-  name: huginn
+  name: huginn-db
   labels:
-    app: huginn
+    app: huginn-db
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: huginn
-  serviceName: huginn
+      app: huginn-db
+  serviceName: huginn-db
   template:
     metadata:
       annotations:
@@ -21,26 +21,26 @@ spec:
       #   runAsUser: 1001
       #   fsGroup: 1001
       containers:
-        - name: huginn
-          image: huginn/huginn:latest
+        - name: huginn-db
+          image: mysql:8.0
           #command: ["tail","-f","/dev/null"]
           envFrom:
           - secretRef:
-              name: huginn-config
+              name: huginn-db-config
           ports:
-            - containerPort: 3000
-              name: http
+            - containerPort: 3306
+              name: tcp-mysql
               protocol: TCP
           volumeMounts:
             - name: huginn-db-data
               mountPath: /var/lib/mysql
           resources:
             limits:
-              #cpu: 500m
-              memory: 2Gi
+              cpu: 500m
+              memory: 1Gi
             requests:
-              #cpu: 500m
-              memory: 2Gi
+              cpu: 500m
+              memory: 1Gi
       imagePullSecrets:
         - name: docker-hub
   volumeClaimTemplates:
