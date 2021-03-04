@@ -14,7 +14,7 @@ spec:
     metadata:
       {{- with .Values.podAnnotations }}
       annotations:
-        {{- toYaml . | nindent 8 }}
+        {{- toYaml $ | nindent 8 }}
       {{- end }}
         prometheus.io/scrape: "true" 
         prometheus.io/port: "{{ $.Values.service.port }}"
