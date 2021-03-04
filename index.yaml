@@ -84,6 +84,16 @@ entries:
   tplink:
   - apiVersion: v2
     appVersion: latest
+    created: "2021-03-04T03:58:30.837150026Z"
+    description: TPLink Exporter
+    digest: a811461058d9bde92c6b31763837cbf8161a8853c07591b461fe60ac99072c76
+    name: tplink
+    type: application
+    urls:
+    - https://github.com/tyzbit/rancher-cd-apps/releases/download/tplink-0.2.7/tplink-0.2.7.tgz
+    version: 0.2.7
+  - apiVersion: v2
+    appVersion: latest
     created: "2021-03-04T03:51:17.163684081Z"
     description: TPLink Exporter
     digest: 63f69cd3ec8e51763b4439a9f8002104fb172d596d55ae748df8b2d51a2524b4
@@ -242,4 +252,4 @@ entries:
     urls:
     - https://github.com/tyzbit/rancher-cd-apps/releases/download/tplink-0.1.0/tplink-0.1.0.tgz
     version: 0.1.0
-generated: "2021-03-04T03:51:17.16388038Z"
+generated: "2021-03-04T03:58:30.837717429Z"
