@@ -12,10 +12,8 @@ spec:
       {{- include "tplink.selectorLabels" $ | nindent 6 }}
   template:
     metadata:
-      {{- with .Values.podAnnotations }}
       annotations:
-        {{- toYaml $ | nindent 8 }}
-      {{- end }}
+        {{- toYaml .Values.podAnnotations | nindent 8 }}
         prometheus.io/scrape: "true" 
         prometheus.io/port: "{{ $.Values.service.port }}"
         prometheus.io/path: "/metrics?address={{ $device.address }}&legacy=false"
