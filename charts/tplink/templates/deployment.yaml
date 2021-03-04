@@ -13,7 +13,7 @@ spec:
   template:
     metadata:
       annotations:
-        {{- toYaml .Values.podAnnotations | nindent 8 }}
+        {{- toYaml $.Values.podAnnotations | nindent 8 }}
         prometheus.io/scrape: "true" 
         prometheus.io/port: "{{ $.Values.service.port }}"
         prometheus.io/path: "/metrics?address={{ $device.address }}&legacy=false"
