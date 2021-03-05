@@ -31,7 +31,8 @@ spec:
       #       topologyKey: kubernetes.io/hostname
       containers:
         - name: btc-rpc-explorer-cache
-          image: redis
+          image: redis:6.2
+          imagePullPolicy: Always
           ports:
             - containerPort: 6379
               name: redis

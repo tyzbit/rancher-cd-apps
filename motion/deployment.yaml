@@ -21,6 +21,7 @@ spec:
       initContainers:
       - name: copy-data
         image: tyzbit/motion-browser
+        imagePullPolicy: Always
         command: ["cp","-r","/var/www/html/","/shared-www/"]
         volumeMounts:
         - mountPath: "/shared-www"
