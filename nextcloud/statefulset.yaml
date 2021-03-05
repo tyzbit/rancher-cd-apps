@@ -77,11 +77,11 @@ spec:
     spec:
       containers:
         - name: nextcloud-cache
-          image: redis
+          image: redis:6.2
           imagePullPolicy: Always
           ports:
             - containerPort: 6379
-              name: redis:6.2
+              name: redis
               protocol: TCP
           volumeMounts:
             - name: nextcloud-cache
