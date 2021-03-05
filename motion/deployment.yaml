@@ -28,7 +28,7 @@ spec:
           name: shared-www
       containers:
       - name: nginx
-        image: nginx
+        image: nginx:latest
         imagePullPolicy: Always
         ports:
         - containerPort: 80
