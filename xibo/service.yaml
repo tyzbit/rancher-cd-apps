@@ -3,7 +3,7 @@ kind: Service
 metadata:
   name: xibo-web
 spec:
-  type: NodePort
+  type: LoadBalancer
   selector:
     app: xibo-web
   ports:
