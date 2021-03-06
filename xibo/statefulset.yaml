@@ -1,0 +1,55 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: xibo-db
+  labels:
+    app: xibo-db
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: xibo-db
+  serviceName: xibo-db
+  template:
+    metadata:
+      annotations:
+        # linkerd.io/inject: enabled
+      labels:
+        app: xibo-db
+    spec:
+      containers:
+        - name: xibo-db
+          image: mariadb:10.5
+          imagePullPolicy: Always
+          envFrom:
+          - secretRef:
+              name: xibo-db
+          ports:
+            - containerPort: 3306
+              name: sql
+              protocol: TCP
+          volumeMounts:
+            - name: xibo-db
+              mountPath: /var/lib/mysql
+          resources:
+            limits:
+              cpu: 500m
+              memory: 768Mi
+            requests:
+              cpu: 500m
+              memory: 768Mi
+      imagePullSecrets:
+        - name: docker-hub
+  volumeClaimTemplates:
+  - apiVersion: v1
+    kind: PersistentVolume
+    metadata:
+      name: xibo-db
+    spec:
+      accessModes: 
+        - ReadWriteOnce
+      volumeMode: Filesystem
+      storageClassName: longhorn
+      resources:
+        requests:
+          storage: 5Gi
