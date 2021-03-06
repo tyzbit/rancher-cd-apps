@@ -8,7 +8,7 @@ metadata:
     app: xibo-web
 spec:
   replicas: 1
-  ServiceName: xibo-web
+  serviceName: xibo-web
   selector:
     matchLabels:
       app: xibo-web
