@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: xibo-xnr
+  name: xibo-xmr
   annotations:
     # fluxcd.io/ignore: "true"
   labels:

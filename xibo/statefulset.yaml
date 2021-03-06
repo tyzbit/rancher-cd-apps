@@ -20,7 +20,7 @@ spec:
         app: xibo-web
     spec:
       containers:
-      - name: xibo-xmr
+      - name: xibo-web
         image: xibosignage/xibo-cms:latest
         imagePullPolicy: IfNotPresent
         # command: ["tail","-f","/dev/null"]
