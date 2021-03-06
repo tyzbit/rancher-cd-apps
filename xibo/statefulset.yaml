@@ -31,17 +31,17 @@ spec:
         - containerPort: 80
           name: http
           protocol: TCP
-          volumeMounts:
-            - name: xibo-web-db
-              mountPath: /shared/db
-            - name: xibo-web-backup
-              mountPath: /shared/backup
-            - name: xibo-web-custom-themes
-              mountPath: /shared/cms/web/theme/custom
-            - name: xibo-web-custom-module
-              mountPath: /shared/cms/custom
-            - name: xibo-web-custom-userscripts
-              mountPath: /shared/cms/web/userscripts
+        volumeMounts:
+          - name: xibo-web-db
+            mountPath: /shared/db
+          - name: xibo-web-backup
+            mountPath: /shared/backup
+          - name: xibo-web-custom-themes
+            mountPath: /shared/cms/web/theme/custom
+          - name: xibo-web-custom-module
+            mountPath: /shared/cms/custom
+          - name: xibo-web-custom-userscripts
+            mountPath: /shared/cms/web/userscripts
         resources:
           requests:
             cpu: 500m
