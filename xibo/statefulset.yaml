@@ -38,7 +38,7 @@ spec:
             mountPath: /shared/backup
           - name: xibo-web-custom-themes
             mountPath: /shared/cms/web/theme/custom
-          - name: xibo-web-custom-module
+          - name: xibo-web-custom-modules
             mountPath: /shared/cms/custom
           - name: xibo-web-custom-userscripts
             mountPath: /shared/cms/web/userscripts
