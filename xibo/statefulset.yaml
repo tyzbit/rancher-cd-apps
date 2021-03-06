@@ -1,6 +1,121 @@
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
+  name: xibo-web
+  annotations:
+    # fluxcd.io/ignore: "true"
+  labels:
+    app: xibo-web
+spec:
+  replicas: 1
+  ServiceName: xibo-web
+  selector:
+    matchLabels:
+      app: xibo-web
+  template:
+    metadata:
+      annotations:
+        linkerd.io/inject: enabled
+      labels:
+        app: xibo-web
+    spec:
+      containers:
+      - name: xibo-xmr
+        image: xibosignage/xibo-cms:latest
+        imagePullPolicy: IfNotPresent
+        # command: ["tail","-f","/dev/null"]
+        envFrom:
+          - secretRef:
+              name: xibo-web-config
+        ports:
+        - containerPort: 80
+          name: http
+          protocol: TCP
+          volumeMounts:
+            - name: xibo-web-db
+              mountPath: /shared/db
+            - name: xibo-web-backup
+              mountPath: /shared/backup
+            - name: xibo-web-custom-themes
+              mountPath: /shared/cms/web/theme/custom
+            - name: xibo-web-custom-module
+              mountPath: /shared/cms/custom
+            - name: xibo-web-custom-userscripts
+              mountPath: /shared/cms/web/userscripts
+        resources:
+          requests:
+            cpu: 500m
+            memory: 256Mi
+          limits:
+            cpu: 500m
+            memory: 256Mi
+      imagePullSecrets:
+        - name: docker-hub
+  volumeClaimTemplates:
+  - apiVersion: v1
+    kind: PersistentVolume
+    metadata:
+      name: xibo-web-db
+    spec:
+      accessModes: 
+        - ReadWriteOnce
+      volumeMode: Filesystem
+      storageClassName: longhorn
+      resources:
+        requests:
+          storage: 5Gi
+  - apiVersion: v1
+    kind: PersistentVolume
+    metadata:
+      name: xibo-web-backup
+    spec:
+      accessModes: 
+        - ReadWriteOnce
+      volumeMode: Filesystem
+      storageClassName: longhorn
+      resources:
+        requests:
+          storage: 20Gi
+  - apiVersion: v1
+    kind: PersistentVolume
+    metadata:
+      name: xibo-web-custom-themes
+    spec:
+      accessModes: 
+        - ReadWriteOnce
+      volumeMode: Filesystem
+      storageClassName: longhorn
+      resources:
+        requests:
+          storage: 1Gi
+  - apiVersion: v1
+    kind: PersistentVolume
+    metadata:
+      name: xibo-web-custom-modules
+    spec:
+      accessModes: 
+        - ReadWriteOnce
+      volumeMode: Filesystem
+      storageClassName: longhorn
+      resources:
+        requests:
+          storage: 1Gi
+  - apiVersion: v1
+    kind: PersistentVolume
+    metadata:
+      name: xibo-web-custom-userscripts
+    spec:
+      accessModes: 
+        - ReadWriteOnce
+      volumeMode: Filesystem
+      storageClassName: longhorn
+      resources:
+        requests:
+          storage: 1Gi
+---
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
   name: xibo-db
   labels:
     app: xibo-db
