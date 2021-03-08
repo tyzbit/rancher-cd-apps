@@ -3,6 +3,16 @@ entries:
   inspector:
   - apiVersion: v2
     appVersion: latest
+    created: "2021-03-08T23:35:28.17156964Z"
+    description: A Helm chart for Kubernetes
+    digest: 0de9027c8b19eb1d453e891a74e4da079ae91958741ee7967af8da46ba0e43ba
+    name: inspector
+    type: application
+    urls:
+    - https://github.com/tyzbit/rancher-cd-apps/releases/download/inspector-0.1.12/inspector-0.1.12.tgz
+    version: 0.1.12
+  - apiVersion: v2
+    appVersion: latest
     created: "2021-03-04T03:37:44.179951817Z"
     description: A Helm chart for Kubernetes
     digest: 9c287a9de398cd8e76da5baf635e7d33231dc32859b1b06a8d17fdc6cc166d96
@@ -82,6 +92,16 @@ entries:
     - https://github.com/tyzbit/rancher-cd-apps/releases/download/inspector-0.1.3/inspector-0.1.3.tgz
     version: 0.1.3
   tplink:
+  - apiVersion: v2
+    appVersion: latest
+    created: "2021-03-08T23:35:28.254433068Z"
+    description: TPLink Exporter
+    digest: dfc584752238814a74493b2aeeb8f1a903b9699f20ac34e95b431ae6de17bdd7
+    name: tplink
+    type: application
+    urls:
+    - https://github.com/tyzbit/rancher-cd-apps/releases/download/tplink-0.2.10/tplink-0.2.10.tgz
+    version: 0.2.10
   - apiVersion: v2
     appVersion: latest
     created: "2021-03-04T04:04:53.615834001Z"
@@ -272,4 +292,4 @@ entries:
     urls:
     - https://github.com/tyzbit/rancher-cd-apps/releases/download/tplink-0.1.0/tplink-0.1.0.tgz
     version: 0.1.0
-generated: "2021-03-04T04:04:53.615998701Z"
+generated: "2021-03-08T23:35:28.254635465Z"
