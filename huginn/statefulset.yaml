@@ -41,6 +41,8 @@ spec:
             requests:
               cpu: 500m
               memory: 1Gi
+      nodeSelector:
+        longhorn: primary-pool
       imagePullSecrets:
         - name: docker-hub
   volumeClaimTemplates:

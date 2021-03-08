@@ -58,6 +58,7 @@ spec:
             medium: Memory
       nodeSelector:
         graphics: dri
+        longhorn: primary-pool
       imagePullSecrets:
         - name: docker-hub
   volumeClaimTemplates:

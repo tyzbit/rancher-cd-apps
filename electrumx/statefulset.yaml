@@ -49,8 +49,6 @@ spec:
         volumeMounts:
           - mountPath: "/data"
             name: electrumx-data
-          # - mountPath: "/simulacrum"
-          #   name: simulacrum-electrumx
         resources:
           requests:
             cpu: 750m
@@ -58,11 +56,8 @@ spec:
           limits:
             cpu: 750m
             memory: 3072Mi
-      # volumes:
-      #   - name: simulacrum-electrumx
-      #     nfs: 
-      #       server: simulacrum
-      #       path: /mnt/user/ElectrumXData
+      nodeSelector:
+        longhorn: primary-pool
       imagePullSecrets:
         - name: docker-hub
   volumeClaimTemplates:

@@ -49,6 +49,8 @@ spec:
           limits:
             cpu: 500m
             memory: 256Mi
+      nodeSelector:
+        longhorn: primary-pool
       imagePullSecrets:
         - name: docker-hub
   volumeClaimTemplates:
@@ -155,6 +157,8 @@ spec:
               memory: 768Mi
       imagePullSecrets:
         - name: docker-hub
+      nodeSelector:
+        longhorn: primary-pool
   volumeClaimTemplates:
   - apiVersion: v1
     kind: PersistentVolume
