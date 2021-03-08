@@ -14,8 +14,8 @@ image:
 imagePullSecrets: 
   - name: docker-hub
 
-podAnnotations:
-  linkerd.io/inject: enabled
+# podAnnotations:
+#   linkerd.io/inject: enabled
 
 resources: 
   # We usually recommend not to specify default resources and to leave this as a conscious

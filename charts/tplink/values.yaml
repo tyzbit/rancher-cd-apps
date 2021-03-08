@@ -17,8 +17,8 @@ image:
 imagePullSecrets: 
   - name: docker-hub
 
-podAnnotations:
-  linkerd.io/inject: enabled
+# podAnnotations:
+#   linkerd.io/inject: enabled
 
 service:
   type: ClusterIP
