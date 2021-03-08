@@ -15,7 +15,7 @@ spec:
   template:
     metadata:
       annotations:
-        linkerd.io/inject: enabled
+        # linkerd.io/inject: enabled
       labels:
         app: youtube-dl
     spec:
