@@ -6,7 +6,7 @@ resources:
   - ingress-grafana.yaml
   # - ingress-kiali.yaml
   - ingress-kubecost.yaml
-  - ingress-linkerd.yaml
+  # - ingress-linkerd.yaml
   - ingress-longhorn.yaml
   - ingress-motioneye.yaml
   - ingress-n8n.yaml
