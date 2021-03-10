@@ -14,6 +14,9 @@ spec:
     metadata:
       annotations:
         keel.sh/policy: all
+        keel.sh/trigger: poll
+        keel.sh/approvals: "1"
+        keel.sh/pollSchedule: "@every 1m"
         # linkerd.io/inject: enabled
       labels:
         app: nextcloud-db
@@ -75,6 +78,9 @@ spec:
     metadata:
       annotations:
         keel.sh/policy: all
+        keel.sh/trigger: poll
+        keel.sh/approvals: "1"
+        keel.sh/pollSchedule: "@every 1m"
         # linkerd.io/inject: enabled
       labels:
         app: nextcloud-cache
