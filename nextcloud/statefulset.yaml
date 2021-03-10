@@ -3,10 +3,11 @@ kind: StatefulSet
 metadata:
   name: nextcloud-db
   annotations:
-    keel.sh/policy: all
+    keel.sh/policy: force
     keel.sh/trigger: poll
     keel.sh/approvals: "1"
     keel.sh/pollSchedule: "@every 1m"
+    keel.sh/match-tag: "true"
   labels:
     app: nextcloud-db
 spec:
@@ -66,10 +67,11 @@ kind: StatefulSet
 metadata:
   name: nextcloud-cache
   annotations:
-    keel.sh/policy: all
+    keel.sh/policy: force
     keel.sh/trigger: poll
     keel.sh/approvals: "1"
     keel.sh/pollSchedule: "@every 1m"
+    keel.sh/match-tag: "true"
     # fluxcd.io/ignore: "true"
   labels:
     app: nextcloud-cache
