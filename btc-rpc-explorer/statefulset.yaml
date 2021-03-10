@@ -2,6 +2,11 @@ apiVersion: apps/v1
 kind: StatefulSet
 metadata:
   name: btc-rpc-explorer-cache
+  annotations:
+    keel.sh/policy: all
+    keel.sh/trigger: poll
+    keel.sh/approvals: "1"
+    keel.sh/pollSchedule: "@every 1m"
   labels:
     app: btc-rpc-explorer-cache
 spec:
@@ -13,10 +18,6 @@ spec:
   template:
     metadata:
       annotations:
-        keel.sh/policy: all
-        keel.sh/trigger: poll
-        keel.sh/approvals: "1"
-        keel.sh/pollSchedule: "@every 1m"
         # linkerd.io/inject: enabled
       labels:
         app: btc-rpc-explorer-cache
