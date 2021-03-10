@@ -3,7 +3,7 @@ kind: StatefulSet
 metadata:
   name: nextcloud-db
   annotations:
-    keel.sh/policy: force
+    keel.sh/policy: "glob:10.5"
     keel.sh/trigger: poll
     keel.sh/approvals: "1"
     keel.sh/pollSchedule: "@every 1m"
@@ -67,7 +67,7 @@ kind: StatefulSet
 metadata:
   name: nextcloud-cache
   annotations:
-    keel.sh/policy: force
+    keel.sh/policy: "glob:6.2"
     keel.sh/trigger: poll
     keel.sh/approvals: "1"
     keel.sh/pollSchedule: "@every 1m"
