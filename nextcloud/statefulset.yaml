@@ -13,6 +13,7 @@ spec:
   template:
     metadata:
       annotations:
+        keel.sh/policy: all
         # linkerd.io/inject: enabled
       labels:
         app: nextcloud-db
@@ -73,6 +74,7 @@ spec:
   template:
     metadata:
       annotations:
+        keel.sh/policy: all
         # linkerd.io/inject: enabled
       labels:
         app: nextcloud-cache
