@@ -91,6 +91,21 @@ entries:
     urls:
     - https://github.com/tyzbit/rancher-cd-apps/releases/download/inspector-0.1.3/inspector-0.1.3.tgz
     version: 0.1.3
+  jellyfin:
+  - apiVersion: v2
+    appVersion: 10.6.4
+    created: "2021-03-11T22:42:36.776214898Z"
+    description: Jellyfin
+    digest: 429d6804bd0edae404ff0abe05b1072ee22cfc91e03fde5900bca1d303f3a5a4
+    home: https://github.com/kfirfer/helm/tree/master/charts/jellyfin
+    icon: https://developer.asustor.com/uploadIcons/0020_999_1568614440_Jellyfin_256.png
+    maintainers:
+    - email: kfirfer@gmail.com
+      name: kfir
+    name: jellyfin
+    urls:
+    - https://github.com/tyzbit/rancher-cd-apps/releases/download/jellyfin-1.0.2/jellyfin-1.0.2.tgz
+    version: 1.0.2
   tplink:
   - apiVersion: v2
     appVersion: latest
@@ -322,4 +337,4 @@ entries:
     urls:
     - https://github.com/tyzbit/rancher-cd-apps/releases/download/tplink-0.1.0/tplink-0.1.0.tgz
     version: 0.1.0
-generated: "2021-03-10T00:57:37.702410012Z"
+generated: "2021-03-11T22:42:36.776434398Z"
