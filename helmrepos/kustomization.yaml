@@ -3,6 +3,7 @@ kind: Kustomization
 resources:
   - grafana.yaml
   - keel.yaml
+  - kfirfer.yaml
   # - kiali.yaml
   # - prometheus-community.yaml
   - rancher-cd-apps.yaml
