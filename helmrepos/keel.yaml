@@ -4,6 +4,6 @@ metadata:
   name: keel
   namespace: flux-system
 spec:
-  interval: 30s
+  interval: 1m
   timeout: 1m0s
   url: https://charts.keel.sh
