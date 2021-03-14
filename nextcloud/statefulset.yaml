@@ -108,16 +108,6 @@ spec:
         longhorn: primary-pool
       imagePullSecrets:
         - name: docker-hub
-  volumeClaimTemplates:
-  - apiVersion: v1
-    kind: PersistentVolume
-    metadata:
-      name: nextcloud-cache
-    spec:
-      accessModes: 
-        - ReadWriteOnce
-      volumeMode: Filesystem
-      storageClassName: longhorn
-      resources:
-        requests:
-          storage: 2Gi
+      volumes:
+        - name: nextcloud-cache
+          emptyDir: {}

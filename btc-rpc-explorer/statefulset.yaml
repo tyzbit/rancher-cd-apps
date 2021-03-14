@@ -56,16 +56,6 @@ spec:
         longhorn: primary-pool
       imagePullSecrets:
         - name: docker-hub
-  volumeClaimTemplates:
-  - apiVersion: v1
-    kind: PersistentVolume
-    metadata:
-      name: btc-rpc-explorer-cache
-    spec:
-      accessModes: 
-        - ReadWriteOnce
-      volumeMode: Filesystem
-      storageClassName: longhorn
-      resources:
-        requests:
-          storage: 2Gi
+      volumes:
+        - name: btc-rpc-explorer-cache
+          emptyDir: {}
