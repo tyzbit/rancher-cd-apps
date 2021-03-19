@@ -16,6 +16,11 @@ data:
         root /media/;
       }
 
+      location /autoscaling.json {
+        satisfy any;
+        allow all;
+      }
+
       location / {
         satisfy any;
         deny all;
