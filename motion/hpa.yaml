@@ -20,5 +20,5 @@ spec:
       metric:
         name: autoscaling-metric
       target:
-        averageUtilization: 1
-        type: Utilization
+        averageValue: 1
+        type: Value
