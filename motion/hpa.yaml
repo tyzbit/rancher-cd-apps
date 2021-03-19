@@ -4,9 +4,9 @@ metadata:
   name: motion-hpa
   annotations:
     # metric-config.<metricType>.<metricName>.<collectorType>/<configKey>
-    metric-config.pods.requests-per-second.json-path/json-key: "$.autoscaling"
-    metric-config.pods.requests-per-second.json-path/path: /autoscaling.json
-    metric-config.pods.requests-per-second.json-path/port: "80"
+    metric-config.pods.autoscaling-metric.json-path/json-key: "$.autoscaling"
+    metric-config.pods.autoscaling-metric.json-path/path: /autoscaling.json
+    metric-config.pods.autoscaling-metric.json-path/port: "80"
 spec:
   scaleTargetRef:
     apiVersion: apps/v1
