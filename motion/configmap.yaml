@@ -21,6 +21,10 @@ data:
         allow all;
       }
 
+      location = /status {
+          stub_status;
+      }
+
       location / {
         satisfy any;
         deny all;
