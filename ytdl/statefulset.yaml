@@ -21,8 +21,7 @@ spec:
     spec:
       containers:
       - name: youtube-dl
-        image: tzahi12345/youtubedl-material:nightly
-        imagePullPolicy: Always
+        image: tzahi12345/youtubedl-material:latest
         # command: ["tail","-f","/dev/null"]
         imagePullPolicy: Always
         env: 
@@ -50,6 +49,10 @@ spec:
           limits:
             cpu: 500m
             memory: 2048Mi
+        livenessProbe:
+          initialDelaySeconds: 60
+          httpGet:
+            port: http-youtube-dl
       imagePullSecrets:
         - name: docker-hub
   volumeClaimTemplates:
