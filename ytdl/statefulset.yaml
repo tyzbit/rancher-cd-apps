@@ -22,7 +22,8 @@ spec:
       containers:
       - name: youtube-dl
         image: tzahi12345/youtubedl-material:nightly
-        command: ["tail","-f","/dev/null"]
+        # command: ["tail","-f","/dev/null"]
+        command: ["sh","-c","npm i nodemon -g && /app/entrypoint.sh nodemon app.js"]
         imagePullPolicy: Always
         env: 
         - name: ALLOW_CONFIG_MUTATIONS
