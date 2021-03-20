@@ -40,7 +40,7 @@ spec:
   selector:
     matchLabels:
       app: iperf3-client
-  replicas: 0
+  replicas: 1
   strategy:
     type: RollingUpdate
     rollingUpdate:
@@ -71,3 +71,5 @@ spec:
           #args: ["-c","iperf3-server","-t","0"]
       imagePullSecrets:
         - name: docker-hub
+      nodeSelector:
+        kubernetes.io/hostname: trainman
