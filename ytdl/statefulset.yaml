@@ -7,7 +7,7 @@ metadata:
   labels:
     app: youtube-dl
 spec:
-  replicas: 1
+  replicas: 0
   selector:
     matchLabels:
       app: youtube-dl
@@ -21,9 +21,9 @@ spec:
     spec:
       containers:
       - name: youtube-dl
-        image: tzahi12345/youtubedl-material:nightly
+        image: tzahi12345/youtubedl-material:latest
         # command: ["tail","-f","/dev/null"]
-        command: ["sh","-c","npm i nodemon -g && /app/entrypoint.sh nodemon app.js"]
+        # command: ["sh","-c","npm i nodemon -g && /app/entrypoint.sh nodemon app.js"]
         imagePullPolicy: Always
         env: 
         - name: ALLOW_CONFIG_MUTATIONS
