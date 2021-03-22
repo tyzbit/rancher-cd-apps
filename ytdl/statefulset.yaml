@@ -15,105 +15,74 @@ spec:
   template:
     metadata:
       annotations:
-        # linkerd.io/inject: enabled
+      # linkerd.io/inject: enabled
       labels:
         app: youtube-dl
     spec:
+      # this is really only needed the very first time this deployment is executed
+      initContainers:
+        - name: youtube-dl-createdirs
+          image: busybox
+          command:
+            - sh
+            - -c
+            - for d in appdata audio subscriptions users video; do mkdir /app/$d; done
+          volumeMounts:
+            - mountPath: /app
+              name: youtube-dl-data
       containers:
-      - name: youtube-dl
-        image: tzahi12345/youtubedl-material:latest
-        # command: ["tail","-f","/dev/null"]
-        # command: ["sh","-c","npm i nodemon -g && /app/entrypoint.sh nodemon app.js"]
-        imagePullPolicy: Always
-        env: 
-        - name: ALLOW_CONFIG_MUTATIONS
-          value: "true"
-        ports:
-        - containerPort: 17442
-          name: http-youtube-dl
-          protocol: TCP
-        volumeMounts:
-          - mountPath: /app/audio
-            name: youtube-dl-audio
-          - mountPath: /app/video
-            name: youtube-dl-video
-          - mountPath: /app/appdata
-            name: youtube-dl-appdata
-          - mountPath: /app/users
-            name: youtube-dl-users
-          - mountPath: /app/subscriptions
-            name: youtube-dl-subscriptions
-        resources:
-          requests:
-            cpu: 500m
-            memory: 2048Mi
-          limits:
-            cpu: 500m
-            memory: 2048Mi
-        livenessProbe:
-          initialDelaySeconds: 60
-          httpGet:
-            port: http-youtube-dl
+        - name: youtube-dl
+          image: tzahi12345/youtubedl-material:nightly
+          # command: ["tail","-f","/dev/null"]
+          # command: ["sh","-c","npm i nodemon -g && /app/entrypoint.sh nodemon app.js"]
+          imagePullPolicy: Always
+          env:
+            - name: ALLOW_CONFIG_MUTATIONS
+              value: "true"
+          ports:
+            - containerPort: 17442
+              name: http-youtube-dl
+              protocol: TCP
+          volumeMounts:
+          # mount specific subdirectories so as not to clobber the files in /app
+            - mountPath: /app/appdata
+              subpath: appdata
+              name: youtube-dl-data
+            - mountPath: /app/audio
+              subpath: audio
+              name: youtube-dl-data
+            - mountPath: /app/subscriptions
+              subpath: subscriptions
+              name: youtube-dl-data
+            - mountPath: /app/users
+              subpath: users
+              name: youtube-dl-data
+            - mountPath: /app/video
+              subpath: video
+              name: youtube-dl-data
+          resources:
+            requests:
+              cpu: 500m
+              memory: 2048Mi
+            limits:
+              cpu: 500m
+              memory: 2048Mi
+          livenessProbe:
+            initialDelaySeconds: 60
+            httpGet:
+              port: http-youtube-dl
       imagePullSecrets:
         - name: docker-hub
   volumeClaimTemplates:
-  - apiVersion: v1
-    kind: PersistentVolume
-    metadata:
-      name: youtube-dl-audio
-    spec:
-      accessModes: 
-        - ReadWriteOnce
-      volumeMode: Filesystem
-      storageClassName: longhorn
-      resources:
-        requests:
-          storage: 1Gi
-  - apiVersion: v1
-    kind: PersistentVolume
-    metadata:
-      name: youtube-dl-video
-    spec:
-      accessModes: 
-        - ReadWriteOnce
-      volumeMode: Filesystem
-      storageClassName: longhorn
-      resources:
-        requests:
-          storage: 1Gi
-  - apiVersion: v1
-    kind: PersistentVolume
-    metadata:
-      name: youtube-dl-appdata
-    spec:
-      accessModes: 
-        - ReadWriteOnce
-      volumeMode: Filesystem
-      storageClassName: longhorn
-      resources:
-        requests:
-          storage: 1Gi
-  - apiVersion: v1
-    kind: PersistentVolume
-    metadata:
-      name: youtube-dl-subscriptions
-    spec:
-      accessModes: 
-        - ReadWriteOnce
-      volumeMode: Filesystem
-      storageClassName: longhorn
-      resources:
-        requests:
-          storage: 1Gi
-  - apiVersion: v1
-    kind: PersistentVolume
-    metadata:
-      name: youtube-dl-users
-    spec:
-      accessModes: 
-        - ReadWriteOnce
-      volumeMode: Filesystem
-      storageClassName: longhorn
-      resources:
-        requests:
-          storage: 10Gi
+    - apiVersion: v1
+      kind: PersistentVolume
+      metadata:
+        name: youtube-dl-data
+      spec:
+        accessModes:
+          - ReadWriteOnce
+        volumeMode: Filesystem
+        storageClassName: longhorn
+        resources:
+          requests:
+            storage: 20Gi
