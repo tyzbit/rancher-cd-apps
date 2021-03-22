@@ -46,19 +46,19 @@ spec:
           volumeMounts:
           # mount specific subdirectories so as not to clobber the files in /app
             - mountPath: /app/appdata
-              subpath: appdata
+              subPath: appdata
               name: youtube-dl-data
             - mountPath: /app/audio
-              subpath: audio
+              subPath: audio
               name: youtube-dl-data
             - mountPath: /app/subscriptions
-              subpath: subscriptions
+              subPath: subscriptions
               name: youtube-dl-data
             - mountPath: /app/users
-              subpath: users
+              subPath: users
               name: youtube-dl-data
             - mountPath: /app/video
-              subpath: video
+              subPath: video
               name: youtube-dl-data
           resources:
             requests:
