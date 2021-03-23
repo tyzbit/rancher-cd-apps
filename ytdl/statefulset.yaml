@@ -19,17 +19,6 @@ spec:
       labels:
         app: youtube-dl
     spec:
-      # this is really only needed the very first time this deployment is executed
-      initContainers:
-        - name: youtube-dl-createdirs
-          image: busybox
-          command:
-            - sh
-            - -c
-            - for d in appdata audio subscriptions users video; do mkdir /app/$d; done
-          volumeMounts:
-            - mountPath: /app
-              name: youtube-dl-data
       containers:
         - name: youtube-dl
           image: tzahi12345/youtubedl-material:nightly
