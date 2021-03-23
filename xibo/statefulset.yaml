@@ -32,15 +32,20 @@ spec:
           name: http
           protocol: TCP
         volumeMounts:
-          - name: xibo-web-db
+          - name: xibo-web-data
+            subPath: db
             mountPath: /shared/db
-          - name: xibo-web-backup
+          - name: xibo-web-data
+            subPath: backup
             mountPath: /shared/backup
-          - name: xibo-web-custom-themes
+          - name: xibo-web-data
+            subPath: custom-themes
             mountPath: /shared/cms/web/theme/custom
-          - name: xibo-web-custom-modules
+          - name: xibo-web-data
+            subPath: custom-modules
             mountPath: /shared/cms/custom
-          - name: xibo-web-custom-userscripts
+          - name: xibo-web-data
+            subPath: userscripts
             mountPath: /shared/cms/web/userscripts
         resources:
           requests:
@@ -57,7 +62,7 @@ spec:
   - apiVersion: v1
     kind: PersistentVolume
     metadata:
-      name: xibo-web-db
+      name: xibo-web-data
     spec:
       accessModes: 
         - ReadWriteOnce
@@ -65,55 +70,7 @@ spec:
       storageClassName: longhorn
       resources:
         requests:
-          storage: 5Gi
-  - apiVersion: v1
-    kind: PersistentVolume
-    metadata:
-      name: xibo-web-backup
-    spec:
-      accessModes: 
-        - ReadWriteOnce
-      volumeMode: Filesystem
-      storageClassName: longhorn
-      resources:
-        requests:
-          storage: 20Gi
-  - apiVersion: v1
-    kind: PersistentVolume
-    metadata:
-      name: xibo-web-custom-themes
-    spec:
-      accessModes: 
-        - ReadWriteOnce
-      volumeMode: Filesystem
-      storageClassName: longhorn
-      resources:
-        requests:
-          storage: 1Gi
-  - apiVersion: v1
-    kind: PersistentVolume
-    metadata:
-      name: xibo-web-custom-modules
-    spec:
-      accessModes: 
-        - ReadWriteOnce
-      volumeMode: Filesystem
-      storageClassName: longhorn
-      resources:
-        requests:
-          storage: 1Gi
-  - apiVersion: v1
-    kind: PersistentVolume
-    metadata:
-      name: xibo-web-custom-userscripts
-    spec:
-      accessModes: 
-        - ReadWriteOnce
-      volumeMode: Filesystem
-      storageClassName: longhorn
-      resources:
-        requests:
-          storage: 1Gi
+          storage: 40Gi
 ---
 apiVersion: apps/v1
 kind: StatefulSet
