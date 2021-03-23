@@ -37,6 +37,8 @@ spec:
             name: plex-config
           - mountPath: "/transcode"
             name: transcode
+        # note to myself in the future: this is needed in order to use /dev/dri
+        # there is an alternative but it's more work
         securityContext:
           privileged: true
         resources:
