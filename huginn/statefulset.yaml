@@ -5,7 +5,7 @@ metadata:
   labels:
     app: huginn-db
 spec:
-  replicas: 0 # restore me
+  replicas: 1
   selector:
     matchLabels:
       app: huginn-db

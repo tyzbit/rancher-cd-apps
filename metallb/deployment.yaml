@@ -14,7 +14,7 @@ metadata:
   namespace: metallb-system
 spec:
   progressDeadlineSeconds: 600
-  replicas: 0 # restore me
+  replicas: 1
   revisionHistoryLimit: 3
   selector:
     matchLabels:
@@ -81,5 +81,5 @@ status:
     type: Available
   observedGeneration: 2
   readyReplicas: 1
-  replicas: 0 # restore me
+  replicas: 1
   updatedReplicas: 1

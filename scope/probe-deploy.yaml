@@ -10,7 +10,7 @@ metadata:
     weave-scope-component: cluster-agent
   namespace: weave
 spec:
-  replicas: 0 # restore me
+  replicas: 1
   selector:
     matchLabels:
       name: weave-scope-cluster-agent
