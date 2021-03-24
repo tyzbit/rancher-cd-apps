@@ -10,7 +10,7 @@ metadata:
   labels:
     app: nextcloud-db
 spec:
-  replicas: 1
+  replicas: 0 # restore me
   selector:
     matchLabels:
       app: nextcloud-db
@@ -74,7 +74,7 @@ metadata:
   labels:
     app: nextcloud-cache
 spec:
-  replicas: 1
+  replicas: 0 # restore me
   selector:
     matchLabels:
       app: nextcloud-cache

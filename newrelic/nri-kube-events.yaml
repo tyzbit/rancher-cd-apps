@@ -51,7 +51,7 @@ metadata:
     app: nri-kube-events
     app.kubernetes.io/name: nri-kube-events
 spec:
-  replicas: 1
+  replicas: 0 # restore me
   selector:
     matchLabels:
       app.kubernetes.io/name: nri-kube-events

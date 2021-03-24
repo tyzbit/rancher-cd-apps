@@ -7,7 +7,7 @@ metadata:
   labels:
     app: youtube-dl
 spec:
-  replicas: 1
+  replicas: 0 # restore me
   selector:
     matchLabels:
       app: youtube-dl

@@ -10,7 +10,7 @@ metadata:
     weave-scope-component: app
   namespace: weave
 spec:
-  replicas: 1
+  replicas: 0 # restore me
   selector:
     matchLabels:
       app: weave-scope
