@@ -7,7 +7,7 @@ metadata:
   labels:
     app: bitcoin
 spec:
-  replicas: 1
+  replicas: 0 # uses longhorn
   selector:
     matchLabels:
       app: bitcoin
