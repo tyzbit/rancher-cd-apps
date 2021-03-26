@@ -7,7 +7,7 @@ metadata:
   labels:
     app: electrumx
 spec:
-  replicas: 0 # active longhorn
+  replicas: 1 # active longhorn
   selector:
     matchLabels:
       app: electrumx
@@ -51,10 +51,8 @@ spec:
             name: electrumx-data
         resources:
           requests:
-            cpu: 750m
-            memory: 3072Mi
+            cpu: 500m
           limits:
-            cpu: 750m
             memory: 3072Mi
       nodeSelector:
         longhorn: primary-pool

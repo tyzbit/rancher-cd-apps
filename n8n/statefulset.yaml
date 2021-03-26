@@ -5,7 +5,7 @@ metadata:
   labels:
     app: n8n
 spec:
-  replicas: 0 # active longhorn
+  replicas: 1 # active longhorn
   selector:
     matchLabels:
       app: n8n
@@ -34,11 +34,9 @@ spec:
               mountPath: /home/node/.n8n
           resources:
             limits:
-              cpu: 1000m
               memory: 512Mi
             requests:
-              cpu: 1000m
-              memory: 512Mi
+              cpu: 500m
       imagePullSecrets:
         - name: docker-hub
       serviceAccount: n8n

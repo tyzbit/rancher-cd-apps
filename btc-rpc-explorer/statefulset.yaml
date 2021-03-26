@@ -10,7 +10,7 @@ metadata:
   labels:
     app: btc-rpc-explorer-cache
 spec:
-  replicas: 0 # active longhorn
+  replicas: 1 # active longhorn
   selector:
     matchLabels:
       app: btc-rpc-explorer-cache
@@ -47,11 +47,9 @@ spec:
               mountPath: /data
           resources:
             limits:
-              cpu: 50m
               memory: 128Mi
             requests:
               cpu: 50m
-              memory: 128Mi
       # nodeSelector:
       #   longhorn: primary-pool
       imagePullSecrets:

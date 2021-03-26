@@ -45,10 +45,8 @@ spec:
             name: braavos-camera
         resources:
           requests:
-            cpu: 250m
-            memory: 128Mi
+            cpu: 100m
           limits:
-            cpu: 250m
             memory: 128Mi
       - name: motion-browser
         image: tyzbit/motion-browser

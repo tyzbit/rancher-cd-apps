@@ -5,7 +5,7 @@ metadata:
   labels:
     app: huginn-db
 spec:
-  replicas: 0 # active longhorn
+  replicas: 1 # active longhorn
   selector:
     matchLabels:
       app: huginn-db
@@ -36,11 +36,9 @@ spec:
               mountPath: /var/lib/mysql
           resources:
             limits:
-              cpu: 500m
               memory: 1Gi
             requests:
               cpu: 500m
-              memory: 1Gi
       nodeSelector:
         longhorn: primary-pool
       imagePullSecrets:
