@@ -5,7 +5,7 @@ metadata:
   labels:
     app: huginn-db
 spec:
-  replicas: 1 # active longhorn
+  replicas: 0 # active longhorn
   selector:
     matchLabels:
       app: huginn-db
