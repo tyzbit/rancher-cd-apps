@@ -3,7 +3,7 @@ kind: Kustomization
 resources:
   - banzaicloud.yaml
   - grafana.yaml
-  - k8s-at-home.yaml
+  # - k8s-at-home.yaml
   - keel.yaml
   - kfirfer.yaml
   - kubecost.yaml
