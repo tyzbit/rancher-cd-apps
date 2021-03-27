@@ -48,8 +48,8 @@ spec:
       imagePullSecrets:
         - name: docker-hub
       volumes:
-        - persistentVolumeClaim:
-            name: data
+        - name: data
+          persistentVolumeClaim:
             claimName: braavos-media-pvc
   volumeClaimTemplates:
   - apiVersion: v1
