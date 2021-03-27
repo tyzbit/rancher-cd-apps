@@ -3,6 +3,16 @@ entries:
   inspector:
   - apiVersion: v2
     appVersion: latest
+    created: "2021-03-27T22:41:50.908051777Z"
+    description: Inspector uses his gadgets to inspect whatever you want!
+    digest: 019c63e35e851f58496640fb3f626e8b9539d19feae50ea8ede4225c6a5b9682
+    name: inspector
+    type: application
+    urls:
+    - https://github.com/tyzbit/rancher-cd-apps/releases/download/inspector-0.2.0/inspector-0.2.0.tgz
+    version: 0.2.0
+  - apiVersion: v2
+    appVersion: latest
     created: "2021-03-08T23:35:28.17156964Z"
     description: A Helm chart for Kubernetes
     digest: 0de9027c8b19eb1d453e891a74e4da079ae91958741ee7967af8da46ba0e43ba
@@ -365,4 +375,4 @@ entries:
     urls:
     - https://github.com/tyzbit/rancher-cd-apps/releases/download/tplink-0.1.0/tplink-0.1.0.tgz
     version: 0.1.0
-generated: "2021-03-19T20:31:26.460249905Z"
+generated: "2021-03-27T22:41:50.908194478Z"
