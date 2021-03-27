@@ -8,5 +8,5 @@ resources:
   - kfirfer.yaml
   - kubecost.yaml
   # - kiali.yaml
-  # - prometheus-community.yaml
+  - prometheus-community.yaml
   - rancher-cd-apps.yaml
