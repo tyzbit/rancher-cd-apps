@@ -34,7 +34,7 @@ spec:
         volumeMounts:
           - name: radarr-config
             mountPath: /config
-          - name: radarr-data
+          - name: braavos-media-pvc
             mountPath: /data
         ports:
         - containerPort: 7878
@@ -47,6 +47,9 @@ spec:
             memory: 512Mi
       imagePullSecrets:
         - name: docker-hub
+      volumes:
+        - persistentVolumeClaim:
+            claimName: braavos-media-pvc
   volumeClaimTemplates:
   - apiVersion: v1
     kind: PersistentVolume
@@ -60,15 +63,3 @@ spec:
       resources:
         requests:
           storage: 2Gi
-  - apiVersion: v1
-    kind: PersistentVolume
-    metadata:
-      name: radarr-data
-    spec:
-      accessModes: 
-        - ReadWriteOnce
-      volumeMode: Filesystem
-      storageClassName: longhorn
-      resources:
-        requests:
-          storage: 10Gi
