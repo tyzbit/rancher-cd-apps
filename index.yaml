@@ -3,6 +3,16 @@ entries:
   inspector:
   - apiVersion: v2
     appVersion: latest
+    created: "2021-03-27T22:44:02.142274749Z"
+    description: Inspector uses his gadgets to inspect whatever you want!
+    digest: 2bddf0f45d03be8ad379fbc70d2d9aa47cc8e4f2ebdbf999c07b56052e6a7233
+    name: inspector
+    type: application
+    urls:
+    - https://github.com/tyzbit/rancher-cd-apps/releases/download/inspector-0.2.1/inspector-0.2.1.tgz
+    version: 0.2.1
+  - apiVersion: v2
+    appVersion: latest
     created: "2021-03-27T22:41:50.908051777Z"
     description: Inspector uses his gadgets to inspect whatever you want!
     digest: 019c63e35e851f58496640fb3f626e8b9539d19feae50ea8ede4225c6a5b9682
@@ -375,4 +385,4 @@ entries:
     urls:
     - https://github.com/tyzbit/rancher-cd-apps/releases/download/tplink-0.1.0/tplink-0.1.0.tgz
     version: 0.1.0
-generated: "2021-03-27T22:41:50.908194478Z"
+generated: "2021-03-27T22:44:02.142543151Z"
