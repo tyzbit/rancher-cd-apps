@@ -9,5 +9,6 @@ resources:
   - kfirfer.yaml
   - kubecost.yaml
   # - kiali.yaml
+  - nfs-subdir-external-provisioner.yaml
   - prometheus-community.yaml
   - rancher-cd-apps.yaml
