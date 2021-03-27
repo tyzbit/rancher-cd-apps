@@ -34,7 +34,7 @@ spec:
         volumeMounts:
           - name: radarr-config
             mountPath: /config
-          - name: braavos-media-pvc
+          - name: data
             mountPath: /data
         ports:
         - containerPort: 7878
@@ -49,6 +49,7 @@ spec:
         - name: docker-hub
       volumes:
         - persistentVolumeClaim:
+            name: data
             claimName: braavos-media-pvc
   volumeClaimTemplates:
   - apiVersion: v1
