@@ -31,7 +31,7 @@ spec:
       containers:
       - name: nextcloud
         image: nextcloud:20.0.7
-        imagePullPolicy: IfNotPresent
+        imagePullPolicy: Always
         # command: ["tail","-f","/dev/null"]
         envFrom:
           - secretRef:
