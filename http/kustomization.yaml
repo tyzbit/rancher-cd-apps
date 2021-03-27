@@ -10,7 +10,7 @@ resources:
   - ingress-longhorn.yaml
   - ingress-motioneye.yaml
   - ingress-n8n.yaml
-  - ingress-radarr.yaml
+  # - ingress-radarr.yaml
   - ingress-rancher.yaml
   - ingress-scope.yaml
   # - ingress-skydive.yaml
