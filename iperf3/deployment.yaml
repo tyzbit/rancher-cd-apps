@@ -9,7 +9,7 @@ spec:
   selector:
     matchLabels:
       app: iperf3-server
-  replicas: 0
+  replicas: 1
   strategy:
     type: RollingUpdate
     rollingUpdate:
@@ -28,6 +28,8 @@ spec:
           args: ["-s"]
       imagePullSecrets:
         - name: docker-hub
+      nodeSelector:
+        kubernetes.io/hostname: weatherman
 ---
 # pulled from https://github.com/richstokes/k8s-fah
 apiVersion: apps/v1
@@ -40,7 +42,7 @@ spec:
   selector:
     matchLabels:
       app: iperf3-client
-  replicas: 0
+  replicas: 1
   strategy:
     type: RollingUpdate
     rollingUpdate:
@@ -72,4 +74,4 @@ spec:
       imagePullSecrets:
         - name: docker-hub
       nodeSelector:
-        kubernetes.io/hostname: anchorman
+        kubernetes.io/hostname: cameraman
