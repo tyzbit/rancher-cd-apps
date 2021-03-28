@@ -17,13 +17,6 @@ imagePullSecrets:
 # podAnnotations:
 #   linkerd.io/inject: enabled
 
-affinity: 
-  podAffinity:
-    requiredDuringSchedulingIgnoredDuringExecution:
-      - labelSelector:
-          matchLabels:
-            network: 2.5g
-
 resources: 
   # We usually recommend not to specify default resources and to leave this as a conscious
   # choice for the user. This also increases chances charts run on environments with little
