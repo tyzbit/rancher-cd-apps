@@ -282,6 +282,8 @@ spec:
         app: metallb
         component: speaker
     spec:
+      imagePullSecrets:
+        - name: docker-hub
       containers:
       - args:
         - --port=7472
@@ -365,6 +367,8 @@ spec:
         app: metallb
         component: controller
     spec:
+      imagePullSecrets:
+        - name: docker-hub
       containers:
       - args:
         - --port=7472
