@@ -42,26 +42,26 @@ spec:
             name: nextcloud
             port:
               number: 80
-  - host: huginn.qtosw.com
-    http:
-      paths:
-      - pathType: Prefix
-        path: "/"
-        backend:
-          service:
-            name: huginn
-            port:
-              number: 80
-  - host: motion.qtosw.com
-    http:
-      paths:
-      - pathType: Prefix
-        path: "/"
-        backend:
-          service:
-            name: motion
-            port:
-              number: 80
+  # - host: huginn.qtosw.com
+  #   http:
+  #     paths:
+  #     - pathType: Prefix
+  #       path: "/"
+  #       backend:
+  #         service:
+  #           name: huginn
+  #           port:
+  #             number: 80
+  # - host: motion.qtosw.com
+  #   http:
+  #     paths:
+  #     - pathType: Prefix
+  #       path: "/"
+  #       backend:
+  #         service:
+  #           name: motion
+  #           port:
+  #             number: 80
   - host: plex-backup.qtosw.com
     http:
       paths:
@@ -82,13 +82,13 @@ spec:
             name: youtube-dl
             port:
               number: 80
-  - host: xibo.qtosw.com
-    http:
-      paths:
-      - pathType: Prefix
-        path: "/"
-        backend:
-          service:
-            name: xibo-web
-            port:
-              number: 80
+  # - host: xibo.qtosw.com
+  #   http:
+  #     paths:
+  #     - pathType: Prefix
+  #       path: "/"
+  #       backend:
+  #         service:
+  #           name: xibo-web
+  #           port:
+  #             number: 80
