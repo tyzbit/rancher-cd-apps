@@ -49,9 +49,9 @@ spec:
               name: http
               protocol: TCP
           resources:
+            requests:
+              cpu: 100m
             limits:
               memory: 512Mi
-            requests:
-              cpu: 250m
       imagePullSecrets:
         - name: docker-hub

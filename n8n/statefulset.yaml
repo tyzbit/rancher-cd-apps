@@ -33,10 +33,10 @@ spec:
             - name: n8n-data
               mountPath: /home/node/.n8n
           resources:
-            limits:
-              memory: 512Mi
             requests:
               cpu: 500m
+            limits:
+              memory: 512Mi
       imagePullSecrets:
         - name: docker-hub
       serviceAccount: n8n

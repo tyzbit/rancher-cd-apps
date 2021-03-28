@@ -42,10 +42,10 @@ spec:
           securityContext:
             privileged: true
           resources:
+            requests:
+              cpu: 100m
             limits:
               memory: 2560Mi
-            requests:
-              cpu: 1000m
       volumes:
         - name: braavos
           persistentVolumeClaim:

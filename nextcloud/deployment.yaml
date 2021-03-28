@@ -45,9 +45,9 @@ spec:
             name: nextcloud-data
         resources:
           requests:
-            cpu: 1000m
+            cpu: 100m
           limits:
-            memory: 1Gi
+            memory: 256Mi
       volumes:
         - name: nextcloud-data
           persistentVolumeClaim:
