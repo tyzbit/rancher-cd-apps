@@ -17,7 +17,7 @@ spec:
   serviceName: btc-rpc-explorer-cache
   template:
     metadata:
-      annotations:
+      annotations: {}
         # linkerd.io/inject: enabled
       labels:
         app: btc-rpc-explorer-cache

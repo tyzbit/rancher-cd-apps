@@ -12,7 +12,7 @@ spec:
   serviceName: plex
   template:
     metadata:
-      annotations:
+      annotations: {}
         # linkerd.io/inject: enabled
       labels:
         app: plex

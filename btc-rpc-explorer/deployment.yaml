@@ -11,7 +11,7 @@ spec:
       app: btc-rpc-explorer
   template:
     metadata:
-      annotations:
+      annotations: {}
         # linkerd.io/inject: enabled
       labels:
         app: btc-rpc-explorer

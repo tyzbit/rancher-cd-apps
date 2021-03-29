@@ -12,7 +12,7 @@ spec:
   serviceName: n8n
   template:
     metadata:
-      annotations:
+      annotations: {}
         # linkerd.io/inject: enabled
       labels:
         app: n8n

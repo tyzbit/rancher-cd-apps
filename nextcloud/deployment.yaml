@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: nextcloud
-  annotations:
+  annotations: {}
     # fluxcd.io/ignore: "true"
   labels:
     app: nextcloud
@@ -13,7 +13,7 @@ spec:
       app: nextcloud
   template:
     metadata:
-      annotations:
+      annotations: {}
         # linkerd.io/inject: enabled
       labels:
         app: nextcloud

@@ -2,11 +2,7 @@ apiVersion: apps/v1
 kind: StatefulSet
 metadata:
   name: nextcloud-db
-  annotations:
-    keel.sh/policy: all
-    keel.sh/trigger: poll
-    keel.sh/approvals: "1"
-    keel.sh/pollSchedule: "@every 1m"
+  annotations: {}
   labels:
     app: nextcloud-db
 spec:
@@ -17,7 +13,7 @@ spec:
   serviceName: nextcloud-db
   template:
     metadata:
-      annotations:
+      annotations: {}
         # linkerd.io/inject: enabled
       labels:
         app: nextcloud-db
@@ -63,11 +59,7 @@ apiVersion: apps/v1
 kind: StatefulSet
 metadata:
   name: nextcloud-cache
-  annotations:
-    keel.sh/policy: all
-    keel.sh/trigger: poll
-    keel.sh/approvals: "1"
-    keel.sh/pollSchedule: "@every 1m"
+  annotations: {}
     # fluxcd.io/ignore: "true"
   labels:
     app: nextcloud-cache
@@ -79,7 +71,7 @@ spec:
   serviceName: nextcloud-cache
   template:
     metadata:
-      annotations:
+      annotations: {}
         # linkerd.io/inject: enabled
       labels:
         app: nextcloud-cache

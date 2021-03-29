@@ -17,7 +17,7 @@ spec:
       maxSurge: 100%
   template:
     metadata:
-      annotations:
+      annotations: {}
         # linkerd.io/inject: enabled
       labels:
         app: iperf3-server
@@ -50,7 +50,7 @@ spec:
       maxSurge: 100%
   template:
     metadata:
-      annotations:
+      annotations: {}
         # linkerd.io/inject: enabled
       labels:
         app: iperf3-client

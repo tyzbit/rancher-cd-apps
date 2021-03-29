@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: StatefulSet
 metadata:
   name: youtube-dl
-  annotations:
+  annotations: {}
     # fluxcd.io/ignore: "true"
   labels:
     app: youtube-dl
@@ -14,7 +14,7 @@ spec:
   serviceName: youtube-dl
   template:
     metadata:
-      annotations:
+      annotations: {}
       # linkerd.io/inject: enabled
       labels:
         app: youtube-dl
