@@ -10,6 +10,7 @@ resources:
   - kfirfer.yaml
   - kubecost.yaml
   # - kiali.yaml
+  - longhorn.yaml
   - newrelic.yaml
   - nikdoof.yaml
   - nfs-subdir-external-provisioner.yaml
