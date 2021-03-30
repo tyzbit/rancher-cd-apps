@@ -4,8 +4,9 @@ resources:
   - banzaicloud.yaml
   - grafana.yaml
   - ingress-nginx.yaml
+  - harness.yaml
   # - k8s-at-home.yaml
-  - keel.yaml
+  # - keel.yaml
   - kfirfer.yaml
   - kubecost.yaml
   # - kiali.yaml
