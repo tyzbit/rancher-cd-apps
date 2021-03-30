@@ -13,7 +13,6 @@ spec:
     - http01:
         ingress:
           name: shared-ingress
-          class: nginx
     # - dns01:
     #     cloudflare:
     #       email: tyzbit@gmail.com
