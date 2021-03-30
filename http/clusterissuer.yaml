@@ -17,5 +17,5 @@ spec:
         cloudflare:
           email: tyzbit@gmail.com
           apiKeySecretRef:
-            name: cloudflare-apikey
+            name: cloudflare-global-apikey
             key: apikey
