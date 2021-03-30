@@ -15,3 +15,4 @@ resources:
   - nfs-subdir-external-provisioner.yaml
   - prometheus-community.yaml
   - rancher-cd-apps.yaml
+  - rancher-latest.yaml
