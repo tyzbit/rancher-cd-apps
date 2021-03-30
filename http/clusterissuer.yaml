@@ -11,6 +11,7 @@ spec:
     solvers:
     # An empty 'selector' means that this solver matches all domains
     - http01:
+        name: shared-ingress
         ingress:
           class: nginx
     # - dns01:
