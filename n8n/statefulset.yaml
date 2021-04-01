@@ -40,8 +40,6 @@ spec:
       imagePullSecrets:
         - name: docker-hub
       serviceAccount: n8n
-      nodeSelector:
-        kubernetes.io/hostname: "trainman"
   volumeClaimTemplates:
   - apiVersion: v1
     kind: PersistentVolume
