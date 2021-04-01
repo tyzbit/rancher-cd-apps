@@ -6,7 +6,7 @@ metadata:
 spec:
   successfulJobsHistoryLimit: 6
   # activeDeadlineSeconds: 100
-  schedule: "*/3 * * * *"
+  schedule: "*/15 * * * *"
   jobTemplate:
     spec:
       activeDeadlineSeconds: 60
