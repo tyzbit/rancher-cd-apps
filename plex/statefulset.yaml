@@ -58,7 +58,7 @@ spec:
             medium: Memory
       nodeSelector:
         graphics: dri
-        longhorn: primary-pool
+        node.longhorn.io/create-default-disk: "true"
       imagePullSecrets:
         - name: docker-hub
   volumeClaimTemplates:

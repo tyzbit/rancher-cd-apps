@@ -55,7 +55,7 @@ spec:
             cpu: 500m
             memory: 256Mi
       nodeSelector:
-        longhorn: primary-pool
+        node.longhorn.io/create-default-disk: "true"
       imagePullSecrets:
         - name: docker-hub
   volumeClaimTemplates:
@@ -115,7 +115,7 @@ spec:
       imagePullSecrets:
         - name: docker-hub
       nodeSelector:
-        longhorn: primary-pool
+        node.longhorn.io/create-default-disk: "true"
   volumeClaimTemplates:
   - apiVersion: v1
     kind: PersistentVolume

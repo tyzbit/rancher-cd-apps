@@ -55,7 +55,7 @@ spec:
           limits:
             memory: 3072Mi
       nodeSelector:
-        longhorn: primary-pool
+        node.longhorn.io/create-default-disk: "true"
       imagePullSecrets:
         - name: docker-hub
   volumeClaimTemplates:
