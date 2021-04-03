@@ -20,7 +20,7 @@ spec:
       # hostNetwork: true
       containers:
         - name: plex
-          image: plexinc/pms-docker:1.22.1.4275-48e10484b
+          image: plexinc/pms-docker:latest
           imagePullPolicy: Always
           # command: ["tail","-f","/dev/null"]
           envFrom:
