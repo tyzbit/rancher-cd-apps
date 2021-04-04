@@ -7,6 +7,7 @@ resources:
   - harness.yaml
   - jetstack.yaml
   # - k8s-at-home.yaml
+  - keda.yaml
   # - keel.yaml
   - kfirfer.yaml
   - kubecost.yaml
